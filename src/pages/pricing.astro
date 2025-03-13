@@ -6,42 +6,37 @@ import PricingCard from "@components/pricing.astro";
 
 const pricing = [
   {
-    name: "Personal",
-    price: "Free",
+    name: "Starter",
+    price: "From $1,999",
     popular: false,
     features: [
-      "Lifetime free",
-      "Up to 3 users",
-      "Unlimited Pages",
-      "Astro Sub domain",
-      "Basic Integrations",
-      "Community Support",
+      "Professional Website Development",
+      "Basic SEO Optimization",
+      "Mobile Responsive Design",
+      "Contact Form Integration",
+      "Social Media Integration",
+      "3 Months Support",
     ],
     button: {
       text: "Get Started",
-      link: "/",
+      link: "/contact",
     },
   },
   {
-    name: "Startup",
-    price: {
-      monthly: "$19",
-      annual: "$16",
-      discount: "10%",
-      original: "$24",
-    },
+    name: "Business Growth",
+    price: "From $4,999",
     popular: true,
     features: [
-      "All Free Features",
-      "Up to 20 users",
-      "20 Custom domains",
-      "Unlimited Collaborators",
-      "Advanced Integrations",
-      "Priority Support",
+      "All Starter Features",
+      "E-commerce Integration",
+      "Digital Advertising Setup",
+      "Sales Network Development",
+      "Content Marketing Strategy",
+      "6 Months Priority Support",
     ],
     button: {
       text: "Get Started",
-      link: "#",
+      link: "/contact",
     },
   },
   {
@@ -49,12 +44,12 @@ const pricing = [
     price: "Custom",
     popular: false,
     features: [
-      "All Pro Features",
-      "Unlimited Custom domains",
-      "99.99% Uptime SLA",
-      "SAML & SSO Integration",
-      "Dedicated Account Manager",
-      "24/7 Phone Support",
+      "All Business Growth Features",
+      "Business Model Optimization",
+      "Custom Software Development",
+      "Advanced Analytics & Reporting",
+      "Dedicated Digital Strategist",
+      "12 Months Premium Support",
     ],
     button: {
       text: "Contact us",
@@ -67,9 +62,9 @@ const pricing = [
 <Layout title="Pricing">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title">Our Service Packages</Fragment>
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        Tailored digital transformation solutions for businesses of all sizes.
       </Fragment>
     </Sectionhead>
 
