@@ -1,5 +1,4 @@
 ---
-import Contactform from "@components/contactform.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
@@ -13,32 +12,31 @@ import { Icon } from "astro-icon/components";
       <Fragment slot="desc">Ready to start your digital transformation journey?</Fragment>
     </Sectionhead>
 
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+    <div class="mx-auto max-w-4xl mt-16">
       <div>
         <h2 class="font-medium text-2xl text-gray-800">Get in Touch with JYDream</h2>
         <p class="text-lg leading-relaxed text-slate-500 mt-3">
           Have questions about how we can help your business adapt to digital challenges? 
-          Our team of experts is ready to assist you. Fill out the form, send us an email, 
-          or give us a call.
+          Our team of experts is ready to assist you. Send us an email or give us a call.
         </p>
         <div class="mt-5">
           <div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span>123 Digital Avenue, Business District, 10001</span>
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
             <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:info@jydream.com"
-              >info@jydream.com</a
+              href="mailto:ted@jydream.ca"
+              >ted@jydream.ca</a
             >
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
+          </div>
+          <div class="flex items-center mt-2 space-x-2 text-gray-600">
             <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+1 (555) 123-4567">+1 (555) 123-4567</a
+              href="tel:+16475537802">+1 (647) 553-7802</a
+            >
+          </div>
+          <div class="flex items-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:whatsapp" /><a
+              href="https://wa.me/16475537802">+1 (647) 553-7802</a
             >
           </div>
         </div>
-      </div>
-      <div>
-        <Contactform />
       </div>
     </div>
   </Container>
