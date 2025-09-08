@@ -7,7 +7,7 @@ image:
     src: "https://images.unsplash.com/photo-1708287523092-0543d6803857?&fit=crop&w=430&h=240",
     alt: "Digital water technology transformation",
   }
-publishDate: "2024-06-15"
+publishDate: "2025-09-08"
 category: "Success Stories"
 author: "JYDream Strategy Team"
 tags: [success-stories, digital-transformation, case-study, water-industry]
@@ -43,7 +43,7 @@ Launching a new business in the water technology space required more than just a
   - Domain management through Cloudflare
   - Essential communication tools via Mailgun and Twilio integration
 
-- **Comprehensive Website Development**: Created WaterDoctor.ca with JYDream's web development platform, featuring:
+- **Comprehensive Website Development**: Created [WaterDoctor.ca](https://waterdoctor.ca) with JYDream's web development platform, featuring:
 
   - Dedicated sections for blogs and project showcases (case studies)
   - Integration with a backend CMS (Directus) for easy content management

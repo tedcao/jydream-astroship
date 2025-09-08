@@ -2,12 +2,15 @@
 import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
+import StructuredData from "@components/structured-data.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
 
 export interface Props {
   title: string;
+  description?: string;
+  structuredData?: any;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -17,7 +20,7 @@ const resolvedImageWithDomain = new URL(
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, description, structuredData } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "JYDream"
@@ -35,11 +38,11 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="JYDream helps bring your dreams to reality."
+      description={description || "JYDream helps bring your dreams to reality through comprehensive incubation support, mentorship, and resources for startups and entrepreneurs."}
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
+        creator: "@jydream",
+        site: "@jydream",
         card: "summary_large_image",
       }}
       openGraph={{
@@ -54,6 +57,8 @@ const makeTitle = title
         },
       }}
     />
+    <StructuredData type="website" />
+    {structuredData && <StructuredData type="blog" data={structuredData} />}
   </head>
   <body>
     <Navbar />

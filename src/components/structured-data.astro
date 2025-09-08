@@ -1,0 +1,64 @@
+---
+export interface Props {
+  type: 'blog' | 'organization' | 'website';
+  data?: any;
+}
+
+const { type, data } = Astro.props;
+
+let structuredData = {};
+
+if (type === 'blog' && data) {
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": data.title,
+    "description": data.snippet,
+    "author": {
+      "@type": "Organization",
+      "name": data.author || "JYDream Team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "JYDream",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.jydream.ca/favicon.svg"
+      }
+    },
+    "datePublished": data.publishDate,
+    "dateModified": data.publishDate,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": Astro.url.href
+    }
+  };
+} else if (type === 'organization') {
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JYDream",
+    "url": "https://www.jydream.ca",
+    "logo": "https://www.jydream.ca/favicon.svg",
+    "description": "JYDream helps bring your dreams to reality through comprehensive incubation support, mentorship, and resources for startups and entrepreneurs.",
+    "sameAs": [
+      "https://twitter.com/jydream",
+      "https://linkedin.com/company/jydream"
+    ]
+  };
+} else if (type === 'website') {
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "JYDream",
+    "url": "https://www.jydream.ca",
+    "description": "JYDream helps bring your dreams to reality through comprehensive incubation support, mentorship, and resources for startups and entrepreneurs.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "JYDream"
+    }
+  };
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>

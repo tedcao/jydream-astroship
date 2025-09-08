@@ -7,7 +7,7 @@ image:
     src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?&fit=crop&w=430&h=240",
     alt: "JYDream community success",
   }
-publishDate: "2024-03-13"
+publishDate: "2025-08-15"
 category: "Community"
 author: "JYDream Community Team"
 tags: [community, success-stories, inspiration]

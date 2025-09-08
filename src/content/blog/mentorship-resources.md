@@ -7,7 +7,7 @@ image:
     src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?&fit=crop&w=430&h=240",
     alt: "JYDream mentorship",
   }
-publishDate: "2024-03-13"
+publishDate: "2025-06-03"
 category: "Resources"
 author: "JYDream Mentorship Team"
 tags: [mentorship, resources, startup-support]

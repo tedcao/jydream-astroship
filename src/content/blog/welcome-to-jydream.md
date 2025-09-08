@@ -7,7 +7,7 @@ image:
     src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?&fit=crop&w=430&h=240",
     alt: "JYDream incubator",
   }
-publishDate: "2024-03-13"
+publishDate: "2025-04-12"
 category: "Company"
 author: "JYDream Team"
 tags: [incubator, startup, innovation]
