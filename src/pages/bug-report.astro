@@ -1,0 +1,59 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import BugReportForm from "@components/bug-report-form.astro";
+
+// Disable prerendering for this page (needs runtime access to query params)
+export const prerender = false;
+
+// Get company from URL query parameter
+const companySlug = Astro.url.searchParams.get("company") || undefined;
+---
+
+<Layout title="Bug Report">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Report a Bug</Fragment>
+      <Fragment slot="desc">Found an issue? Help us improve by reporting it with details and screenshots.</Fragment>
+    </Sectionhead>
+
+    <div class="mx-auto max-w-3xl mt-16">
+      {companySlug ? (
+        <>
+          <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+            <BugReportForm initialCompany={companySlug} />
+          </div>
+          
+          <div class="mt-8 text-sm text-gray-500">
+            <p>
+              <strong>Note:</strong> Please provide as much detail as possible, including:
+            </p>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>A clear description of the issue</li>
+              <li>The exact URL where the bug occurs</li>
+              <li>Screenshots showing the problem</li>
+            </ul>
+          </div>
+        </>
+      ) : (
+        <div class="bg-white rounded-lg shadow-sm border border-red-200 p-8">
+          <div class="text-center">
+            <div class="mb-4">
+              <svg class="mx-auto h-12 w-12 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Company Information Required</h3>
+            <p class="text-gray-600 mb-4">
+              Please access this page with a company parameter in the URL.
+            </p>
+            <p class="text-sm text-gray-500">
+              Example: <code class="bg-gray-100 px-2 py-1 rounded">/bug-report?company=renocompass</code>
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  </Container>
+</Layout>

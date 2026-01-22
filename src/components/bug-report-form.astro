@@ -1,0 +1,521 @@
+---
+import Button from "./ui/button.astro";
+
+interface Props {
+  initialCompany?: string;
+}
+
+const { initialCompany } = Astro.props;
+---
+
+<form
+  id="bug-report-form"
+  class="needs-validation"
+  novalidate
+  enctype="multipart/form-data"
+  data-initial-company={initialCompany || ''}
+  data-company-locked={initialCompany ? 'true' : 'false'}
+>
+  <!-- Company Selection -->
+  <div class="mb-5">
+    <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
+      Company <span class="text-red-500">*</span>
+      {initialCompany && (
+        <span class="ml-2 text-xs text-gray-500 font-normal">(Locked)</span>
+      )}
+    </label>
+    <select
+      id="company"
+      name="company"
+      required
+      disabled={initialCompany ? true : false}
+      class="w-full px-4 py-3 border-2 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 bg-white disabled:bg-gray-100 disabled:cursor-not-allowed"
+    >
+      <option value="">Select a company...</option>
+    </select>
+    <div class="empty-feedback text-red-400 text-sm mt-1">
+      Please select a company.
+    </div>
+  </div>
+
+  <!-- Project Selection -->
+  <div class="mb-5">
+    <label for="project" class="block text-sm font-medium text-gray-700 mb-2">
+      Project <span class="text-red-500">*</span>
+    </label>
+    <select
+      id="project"
+      name="project"
+      required
+      disabled
+      class="w-full px-4 py-3 border-2 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 bg-gray-100"
+    >
+      <option value="">Please select a company first</option>
+    </select>
+    <div class="empty-feedback text-red-400 text-sm mt-1">
+      Please select a project.
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="mb-5">
+    <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+      Bug Description <span class="text-red-500">*</span>
+    </label>
+    <textarea
+      id="description"
+      name="description"
+      required
+      minlength="10"
+      placeholder="Please describe the bug in detail (minimum 10 characters)..."
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+    ></textarea>
+    <div class="empty-feedback text-red-400 text-sm mt-1">
+      Please provide a description.
+    </div>
+    <div class="invalid-feedback text-red-400 text-sm mt-1">
+      Description must be at least 10 characters.
+    </div>
+  </div>
+
+  <!-- Page URL -->
+  <div class="mb-5">
+    <label for="page_url" class="block text-sm font-medium text-gray-700 mb-2">
+      Page URL <span class="text-red-500">*</span>
+    </label>
+    <input
+      id="page_url"
+      type="url"
+      name="page_url"
+      required
+      placeholder="https://example.com/page"
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+    />
+    <div class="empty-feedback text-red-400 text-sm mt-1">
+      Please provide the page URL.
+    </div>
+    <div class="invalid-feedback text-red-400 text-sm mt-1">
+      Please provide a valid URL.
+    </div>
+  </div>
+
+  <!-- Image Upload -->
+  <div class="mb-5">
+    <label class="block text-sm font-medium text-gray-700 mb-2">
+      Screenshots <span class="text-red-500">*</span>
+      <span class="text-gray-500 text-xs font-normal">(1-10 images, max 5MB each)</span>
+    </label>
+    <input
+      type="file"
+      id="images"
+      name="images"
+      accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+      multiple
+      required
+      class="w-full px-4 py-3 border-2 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+    />
+    <div class="empty-feedback text-red-400 text-sm mt-1">
+      Please upload at least one screenshot.
+    </div>
+    <div id="image-preview-container" class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+    <div id="image-errors" class="text-red-400 text-sm mt-1"></div>
+  </div>
+
+  <!-- Submit Button -->
+  <Button type="submit" size="lg" block id="submit-btn">
+    Submit Bug Report
+  </Button>
+  
+  <!-- Result Message -->
+  <div id="result" class="mt-3 text-center"></div>
+</form>
+
+<style>
+  .invalid-feedback,
+  .empty-feedback {
+    display: none;
+  }
+
+  .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+    display: block;
+  }
+
+  .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .is-invalid,
+  .was-validated :invalid {
+    border-color: #dc3545;
+  }
+
+  .image-preview {
+    position: relative;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.375rem;
+    overflow: hidden;
+  }
+
+  .image-preview img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .image-preview button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(220, 38, 38, 0.9);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+
+  .image-preview button:hover {
+    background: rgba(220, 38, 38, 1);
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    // Wait for DOM to be ready
+    function init() {
+      const form = document.getElementById("bug-report-form");
+      const companySelect = document.getElementById("company");
+      const projectSelect = document.getElementById("project");
+      const imagesInput = document.getElementById("images");
+      const imagePreviewContainer = document.getElementById("image-preview-container");
+      const imageErrors = document.getElementById("image-errors");
+      const result = document.getElementById("result");
+      const submitBtn = document.getElementById("submit-btn");
+      
+      if (!form || !companySelect || !projectSelect) {
+        console.error("Required form elements not found");
+        return;
+      }
+      
+      let selectedFiles = [];
+      let companies = [];
+      let projects = [];
+      // Get initial company from form data attribute
+      const initialCompany = form.dataset.initialCompany || null;
+      const isCompanyLocked = form.dataset.companyLocked === 'true';
+
+      // If company is locked, disable the select
+      if (isCompanyLocked) {
+        companySelect.disabled = true;
+      }
+
+    // Load companies
+    async function loadCompanies() {
+      try {
+        const response = await fetch("/api/directus/companies");
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.companies && Array.isArray(data.companies)) {
+          companies = data.companies;
+          companySelect.innerHTML = '<option value="">Select a company...</option>';
+          
+          if (companies.length === 0) {
+            companySelect.innerHTML = '<option value="">No companies available</option>';
+            return;
+          }
+          
+          companies.forEach(function(company) {
+            const option = document.createElement("option");
+            option.value = String(company.id);
+            option.textContent = company.name || 'Unknown';
+            if (company.slug) {
+              option.dataset.slug = company.slug;
+            }
+            if (initialCompany && company.slug === initialCompany) {
+              option.selected = true;
+            }
+            companySelect.appendChild(option);
+          });
+          
+          // If initial company is set, load its projects and ensure select is disabled
+          if (initialCompany) {
+            const selectedOption = Array.from(companySelect.options).find(
+              function(opt) { return opt.dataset.slug === initialCompany; }
+            );
+            if (selectedOption) {
+              companySelect.value = selectedOption.value;
+              companySelect.disabled = true;
+              await loadProjects(selectedOption.value);
+            }
+          }
+        } else {
+          console.error("Invalid companies data format:", data);
+          companySelect.innerHTML = '<option value="">Error loading companies</option>';
+          if (result) {
+            result.innerHTML = '<div class="text-red-500">Invalid response format from server.</div>';
+          }
+        }
+      } catch (error) {
+        console.error("Error loading companies:", error);
+        companySelect.innerHTML = '<option value="">Error loading companies</option>';
+        if (result) {
+          result.innerHTML = '<div class="text-red-500">Failed to load companies. Please refresh the page.</div>';
+        }
+      }
+    }
+
+    // Load projects for selected company
+    async function loadProjects(companyId) {
+      if (!companyId) {
+        projectSelect.innerHTML = '<option value="">Please select a company first</option>';
+        projectSelect.disabled = true;
+        return;
+      }
+
+      try {
+        projectSelect.disabled = true;
+        projectSelect.innerHTML = '<option value="">Loading projects...</option>';
+        
+        const response = await fetch(`/api/directus/projects?companyId=${encodeURIComponent(companyId)}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        if (data.error) {
+          console.error("API error:", data.error, data.details);
+          projectSelect.innerHTML = '<option value="">Error: ' + (data.details || data.error) + '</option>';
+          return;
+        }
+        
+        if (data.projects && Array.isArray(data.projects)) {
+          projects = data.projects;
+          
+          if (projects.length === 0) {
+            projectSelect.innerHTML = '<option value="">No projects available</option>';
+          } else {
+            projectSelect.innerHTML = '<option value="">Select a project...</option>';
+            projects.forEach(function(project) {
+              const option = document.createElement("option");
+              option.value = String(project.id);
+              option.textContent = project.name || 'Unknown';
+              option.dataset.name = project.name;
+              projectSelect.appendChild(option);
+            });
+            projectSelect.disabled = false;
+          }
+        } else {
+          console.error("Invalid projects data format:", data);
+          projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+        }
+      } catch (error) {
+        console.error("Error loading projects:", error);
+        projectSelect.innerHTML = '<option value="">Error loading projects</option>';
+      }
+    }
+
+    // Handle company change
+    // Only add change listener if company is not locked
+    if (!isCompanyLocked) {
+      companySelect.addEventListener("change", async function() {
+        await loadProjects(this.value);
+      });
+    }
+
+    // Handle image selection
+    imagesInput.addEventListener("change", function() {
+      const files = Array.from(this.files || []);
+      const errors = [];
+      const validFiles = [];
+      
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      const maxFiles = 10;
+
+      // Check total count
+      if (selectedFiles.length + files.length > maxFiles) {
+        errors.push(`Maximum ${maxFiles} images allowed. You can only add ${maxFiles - selectedFiles.length} more.`);
+        this.value = '';
+        return;
+      }
+
+      files.forEach(function(file) {
+        if (!allowedTypes.includes(file.type)) {
+          errors.push(file.name + ': Invalid file type. Only JPEG, PNG, GIF, and WebP are allowed.');
+        } else if (file.size > maxSize) {
+          errors.push(file.name + ': File too large. Maximum size is 5MB.');
+        } else {
+          validFiles.push(file);
+        }
+      });
+
+      if (errors.length > 0) {
+        if (imageErrors) {
+          imageErrors.innerHTML = errors.join('<br>');
+        }
+      } else {
+        if (imageErrors) {
+          imageErrors.innerHTML = '';
+        }
+      }
+
+      selectedFiles.push(...validFiles);
+      updateImagePreview();
+      updateFileInput();
+    });
+
+    // Update image preview
+    function updateImagePreview() {
+      if (!imagePreviewContainer) return;
+      
+      imagePreviewContainer.innerHTML = '';
+      
+      selectedFiles.forEach(function(file, index) {
+        const div = document.createElement("div");
+        div.className = "image-preview";
+        
+        const img = document.createElement("img");
+        img.src = URL.createObjectURL(file);
+        img.alt = file.name;
+        
+        const button = document.createElement("button");
+        button.textContent = "Remove";
+        button.type = "button";
+        button.onclick = function() {
+          selectedFiles.splice(index, 1);
+          updateImagePreview();
+          updateFileInput();
+        };
+        
+        div.appendChild(img);
+        div.appendChild(button);
+        imagePreviewContainer.appendChild(div);
+      });
+    }
+
+    // Update file input
+    function updateFileInput() {
+      const dataTransfer = new DataTransfer();
+      selectedFiles.forEach(function(file) {
+        dataTransfer.items.add(file);
+      });
+      imagesInput.files = dataTransfer.files;
+    }
+
+    // Form submission
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      this.classList.add("was-validated");
+      
+      // Validate images
+      if (selectedFiles.length === 0) {
+        if (imageErrors) {
+          imageErrors.innerHTML = "Please upload at least one screenshot.";
+        }
+        imagesInput.focus();
+        return;
+      }
+
+      if (!this.checkValidity()) {
+        this.querySelectorAll(":invalid")[0].focus();
+        return;
+      }
+
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+      result.innerHTML = "";
+
+      try {
+        const formData = new FormData();
+        
+        // Get company ID and name from selected option
+        const selectedCompanyOption = companySelect.options[companySelect.selectedIndex];
+        const companyId = companySelect.value;
+        const companyName = selectedCompanyOption.textContent || "";
+        
+        // Get project ID and name from selected option
+        const selectedProjectOption = projectSelect.options[projectSelect.selectedIndex];
+        const projectId = projectSelect.value;
+        const projectName = selectedProjectOption ? (selectedProjectOption.dataset.name || selectedProjectOption.textContent) : "";
+        
+        // Send both ID and name for validation and storage
+        formData.append("company_id", companyId);
+        formData.append("company", companyName);
+        formData.append("project_id", projectId);
+        formData.append("project", projectName);
+        formData.append("description", document.getElementById("description").value);
+        formData.append("page_url", document.getElementById("page_url").value);
+        
+        // Append all images
+        selectedFiles.forEach(function(file) {
+          formData.append("images", file);
+        });
+
+        const response = await fetch("/api/submit-bug", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          result.className = "mt-3 text-center text-green-500";
+          result.innerHTML = data.message || "Bug report submitted successfully!";
+          form.reset();
+          this.classList.remove("was-validated");
+          selectedFiles = [];
+          updateImagePreview();
+          updateFileInput();
+          
+          // Reset company and project selects
+          companySelect.value = "";
+          projectSelect.innerHTML = '<option value="">Please select a company first</option>';
+          projectSelect.disabled = true;
+          
+          setTimeout(() => {
+            result.innerHTML = "";
+          }, 5000);
+        } else {
+          result.className = "mt-3 text-center text-red-500";
+          result.innerHTML = data.error || "Failed to submit bug report.";
+          if (data.details) {
+            if (Array.isArray(data.details)) {
+              result.innerHTML += "<br>" + data.details.join("<br>");
+            } else {
+              result.innerHTML += "<br>" + data.details;
+            }
+          }
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        result.className = "mt-3 text-center text-red-500";
+        result.innerHTML = "Something went wrong! Please try again.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Bug Report";
+      }
+    });
+
+      // Initialize
+      loadCompanies();
+    }
+    
+    // Start initialization
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        init();
+      });
+    } else {
+      init();
+    }
+  })();
+</script>
