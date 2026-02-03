@@ -71,9 +71,8 @@ export const POST: APIRoute = async ({ request }) => {
       errors.push('Description must be at least 10 characters');
     }
 
-    if (!pageUrl || pageUrl.trim() === '') {
-      errors.push('Page URL is required');
-    } else {
+    // Validate page URL if provided
+    if (pageUrl && pageUrl.trim() !== '') {
       try {
         new URL(pageUrl);
       } catch {
@@ -83,10 +82,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Filter out empty files
     const validImageFiles = imageFiles.filter(file => file.size > 0);
-    
-    if (validImageFiles.length === 0) {
-      errors.push('At least one image is required');
-    } else if (validImageFiles.length > 10) {
+
+    if (validImageFiles.length > 10) {
       errors.push('Maximum 10 images allowed');
     }
 
@@ -135,7 +132,7 @@ export const POST: APIRoute = async ({ request }) => {
         company_id: companyId.trim(),
         project_id: projectId.trim(),
         description: description.trim(),
-        page_url: pageUrl.trim(),
+        page_url: pageUrl?.trim() || '',
         imageIds,
       });
 
