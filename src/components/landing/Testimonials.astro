@@ -1,0 +1,55 @@
+---
+type Quote = [string, string, string, string, string];
+
+const commerce: Quote[] = [
+  ["They got us into Amazon US, Shopify CA, and Target's open-call in 9 months. We would have taken two years on our own.", "Sarah L.", "Founder, Altura (Shenzhen → NA)", "SL", "#FF6B5B"],
+  ["We hired one person in Toronto for $180k/yr and still had nothing live. JYDream had us shipping orders in 11 weeks — and warming up Nordstrom conversations.", "Marcus T.", "GM North America, Northwind", "MT", "#6366F1"],
+  ["The writing alone was worth it. Our Amazon listings finally sound like they were written in English, not translated.", "Priya K.", "VP Growth, Helix Goods", "PK", "#14B8A6"],
+];
+const service: Quote[] = [
+  ["Our NA customer service turnaround halved after JYDream took over. Customers finally felt heard in their own timezone.", "Rick D.", "CEO, Clearflow Water (Hangzhou)", "RD", "#F59E0B"],
+  ["We tried ServiceTitan. We tried a 3PL. Only JYDream bundled parts, dispatch, and customer service under one SLA.", "Jennifer M.", "COO, Hydrolab (Guangzhou)", "JM", "#EF4444"],
+  ["Filter replacement rebook went from 42% to 78% of our NA base. That's the whole ROI of the engagement.", "Carlos R.", "Founder, Kettle (HK)", "CR", "#8B5CF6"],
+];
+---
+
+<section class="ld-section" id="case-studies" style="background: var(--bg-sunken);">
+  <div class="ld-container">
+    <div class="features-head">
+      <div>
+        <span class="eyebrow">Case studies</span>
+        <h2 class="section-title">Brands we <em>helped land</em>.</h2>
+      </div>
+      <div class="v-toggle" data-role="v-toggle">
+        <button type="button" data-vertical="commerce" class="active">Consumer</button>
+        <button type="button" data-vertical="service">Serviced</button>
+      </div>
+    </div>
+    <div class="test-grid" data-role="test-grid">
+      {commerce.map(([q, n, r, i, c]) => (
+        <div class="test-card" data-vertical="commerce">
+          <div class="test-quote">{q}</div>
+          <div class="test-person">
+            <div class="test-ava" style={`background: ${c};`}>{i}</div>
+            <div>
+              <div class="test-name">{n}</div>
+              <div class="test-role">{r}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+      {service.map(([q, n, r, i, c]) => (
+        <div class="test-card" data-vertical="service" data-hidden="true">
+          <div class="test-quote">{q}</div>
+          <div class="test-person">
+            <div class="test-ava" style={`background: ${c};`}>{i}</div>
+            <div>
+              <div class="test-name">{n}</div>
+              <div class="test-role">{r}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

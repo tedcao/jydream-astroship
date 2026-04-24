@@ -1,0 +1,66 @@
+---
+type Cell = { kind: "yes" | "no" | "partial" } | { kind: "text"; text: string };
+
+const rows: [string, Cell, Cell, Cell, Cell, Cell][] = [
+  ["Written NA market-entry strategy", { kind: "yes" }, { kind: "yes" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }],
+  ["Entity + tax + product compliance", { kind: "yes" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
+  ["Runs your Amazon + Shopify daily", { kind: "yes" }, { kind: "no" }, { kind: "yes" }, { kind: "no" }, { kind: "no" }],
+  ["NA customer service staffed by us", { kind: "yes" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }],
+  ["Accessory lifecycle & recurring revenue", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
+  ["In-house proprietary platform", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
+  ["Asia-NA founding team", { kind: "yes" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
+  ["Exit path: hand ops to your team", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }],
+  ["First-year all-in cost", { kind: "text", text: "~$85–180k" }, { kind: "text", text: "$200k+" }, { kind: "text", text: "$60k+ you manage" }, { kind: "text", text: "$120k+" }, { kind: "text", text: "Your overhead" }],
+];
+const heads = ["Capability", "JYDream", "Big-4 consulting", "Amazon agency", "Fractional GM", "Hiring a team"];
+---
+
+<section class="ld-section">
+  <div class="ld-container">
+    <div class="section-head">
+      <span class="eyebrow">The alternatives</span>
+      <h2 class="section-title">
+        We don't pitch against SaaS. <em>We pitch against hiring.</em>
+      </h2>
+      <p class="section-sub">
+        Most brands entering NA pick one of five paths. Here's how we compare
+        honestly against each.
+      </p>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            {heads.map((h, i) => (
+              <th class:list={[i === 1 && "hl"]}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr>
+              {row.map((cell, j) => (
+                <td class:list={[j === 1 && "hl"]}>
+                  {typeof cell === "string" ? (
+                    <span>{cell}</span>
+                  ) : cell.kind === "yes" ? (
+                    <span class="cmp-yes">✓</span>
+                  ) : cell.kind === "no" ? (
+                    <span class="cmp-no">—</span>
+                  ) : cell.kind === "partial" ? (
+                    <span class="cmp-partial">Partial</span>
+                  ) : (
+                    <span>{cell.text}</span>
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-cap">
+      Most Asian brands overspend on consultancies and under-spend on operators. We're the operator line-item.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+import Icons from "./Icons.astro";
+
+const faqs: [string, string][] = [
+  ["Are you a SaaS product?", "No. JYDream is a services firm — we run your North American operations as an outsourced team. Our in-house platform is a tool we use for you; we don't sell it separately."],
+  ["Who are your typical clients?", "Asian (primarily Greater China, SE Asia, and Korea) consumer brands and serviced-equipment makers with $2M–$200M annual revenue who want to enter or scale in the US & Canada without building a local team from scratch."],
+  ["Do you work with brands already present in NA?", "Yes. Many clients have one channel live (usually Amazon) and need help adding Shopify DTC, retail, or service infrastructure without hiring a GM."],
+  ["Where are you based?", "Operating teams in Toronto, Shenzhen, and Seattle. Legal entities in Ontario and Delaware. Fulfillment partners in Reno (US-West), Atlanta (US-East), and Mississauga (Canada)."],
+  ["What verticals do you know best?", "Water / air filtration, small home appliances, premium consumer electronics, specialty food & beverage, and B2B industrial accessories. We take on adjacent categories case by case."],
+  ["Will I need to hire anyone in North America?", "Not during Launch. Many clients stay in a fully-managed setup permanently. Others transition to a hybrid — we keep complex ops (service, compliance) while they hire marketing or sales in-house."],
+  ["Can I migrate off JYDream later?", "Yes. Entities, accounts, customer data, and platform exports are yours. We build for a hand-off from day one — including a documented runbook if you choose to internalize."],
+  ["What's the minimum commitment?", "Diagnostic engagements are 4 weeks, fixed fee. Launch is a 90-day commitment. Scale retainers are quarterly with 60-day notice."],
+  ["Do you take equity?", "For a small number of early-stage clients, yes — structured as a service-fee discount plus warrants. Ask us if you're pre-Series-B."],
+  ["How quickly can you start?", "Diagnostic kickoff within 2 weeks of NDA. Full engagements begin within 4 weeks of signed scope. Tight timelines around Prime Day / Black Friday we plan 90+ days ahead."],
+  ["Do you sign NDAs?", "Yes, mutual NDA before any discovery call. We routinely handle confidential financials, supplier relationships, and IP roadmaps."],
+];
+---
+
+<section class="ld-section" id="faq">
+  <div class="ld-container">
+    <div class="section-head" style="text-align: center; margin: 0 auto 56px;">
+      <span class="eyebrow" style="justify-content: center;">FAQ</span>
+      <h2 class="section-title">Questions, <em>answered plainly</em>.</h2>
+    </div>
+    <div class="faq-wrap" data-role="faq-wrap">
+      {faqs.map(([q, a], i) => (
+        <div class:list={["faq-item", i === 0 && "open"]}>
+          <button class="faq-q" type="button">
+            <span>{q}</span>
+            <span class="faq-q-icon"><Icons name="plus" /></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">{a}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLDivElement>(".faq-item").forEach((item) => {
+    const q = item.querySelector<HTMLButtonElement>(".faq-q");
+    q?.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+      item.parentElement
+        ?.querySelectorAll(".faq-item")
+        .forEach((el) => el.classList.remove("open"));
+      if (!isOpen) item.classList.add("open");
+    });
+  });
+</script>

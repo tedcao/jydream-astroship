@@ -1,0 +1,40 @@
+---
+import Icons from "./Icons.astro";
+
+const items: [string, string, string][] = [
+  ["01", "Free consultation", "A 30-minute working session with our partners. We review your product, your current NA presence, and the three things we'd tackle first — no pitch deck, no obligation."],
+  ["02", "Free 2-month trial", "If we're a fit, we run a 2-month pilot at no cost. Typical pilots include: Amazon listing revamp, Shopify storefront baseline, or a customer-service handover test — whatever reveals the most value fastest."],
+  ["03", "Only continue if it works", "After the pilot, you decide. Keep going on a retainer scoped to your business, hand the work back to your team, or walk away. We only win if you do."],
+];
+---
+
+<section class="ld-section" id="engagement" style="background: var(--bg-sunken);">
+  <div class="ld-container">
+    <div class="section-head" style="text-align: center; margin: 0 auto 48px; max-width: 720px;">
+      <span class="eyebrow" style="justify-content: center;">How to start</span>
+      <h2 class="section-title">Free consult. <em>Free 2-month trial.</em></h2>
+      <p class="section-sub" style="margin: 0 auto;">
+        We know how hard it is to trust an outside team with your North
+        American operations. So we start at zero risk — you see the work before
+        you write the first check.
+      </p>
+    </div>
+    <div class="how-grid">
+      {items.map(([n, title, body]) => (
+        <div class="how-step">
+          <div class="how-num">{n}</div>
+          <h3 class="how-title">{title}</h3>
+          <p class="how-body">{body}</p>
+        </div>
+      ))}
+    </div>
+    <div style="text-align: center; margin-top: 48px;">
+      <a class="btn btn-primary btn-lg" href="#cta">
+        Book your free consult <Icons name="arrow" />
+      </a>
+      <div style="margin-top: 14px; font-size: 13.5px; color: var(--ink-3);">
+        Mutual NDA on request · Typical kickoff within 2 weeks
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import Icons from "./Icons.astro";
+---
+
+<nav class="ld-nav" id="ld-nav">
+  <div class="ld-container nav-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark"><span>J</span></span>
+      JYDream
+    </a>
+    <div class="nav-links">
+      <div class="nav-item-drop">
+        <button class="nav-link" type="button">
+          Services <Icons name="chevron" class="ml-1 opacity-50" />
+        </button>
+        <div class="nav-menu">
+          <a href="#services">
+            <span class="nav-menu-title" style="color: var(--coral);">Market Entry</span>
+            <span class="nav-menu-sub">Strategy, entity setup, compliance in US &amp; Canada</span>
+          </a>
+          <a href="#services">
+            <span class="nav-menu-title" style="color: #6366F1;">Multi-Channel Operations</span>
+            <span class="nav-menu-sub">Amazon, Shopify, DTC, B2B — run by our team</span>
+          </a>
+          <a href="#services">
+            <span class="nav-menu-title" style="color: #14B8A6;">Service &amp; Aftermarket</span>
+            <span class="nav-menu-sub">Accessory lifecycle and aftermarket revenue</span>
+          </a>
+        </div>
+      </div>
+      <a class="nav-link" href="#platform">Our platform</a>
+      <a class="nav-link" href="#case-studies">Case studies</a>
+      <a class="nav-link" href="#engagement">Engagement</a>
+      <a class="nav-link" href="/about">About</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-primary btn-sm" href="#cta">
+        Book a consult
+        <Icons name="arrow" />
+      </a>
+    </div>
+  </div>
+  <div class="nav-progress" id="ld-nav-progress"></div>
+</nav>
+
+<script>
+  const nav = document.getElementById("ld-nav");
+  const progress = document.getElementById("ld-nav-progress");
+  const onScroll = () => {
+    const s = window.scrollY;
+    nav?.classList.toggle("scrolled", s > 4);
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const pct = max > 0 ? (s / max) * 100 : 0;
+    if (progress) progress.style.width = pct + "%";
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>

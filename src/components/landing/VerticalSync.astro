@@ -1,0 +1,77 @@
+---
+// Coordinates all vertical toggles, feature/testimonial filtering, and the
+// hero vertical-selector cards so they share a single state.
+---
+
+<script>
+  type Vertical = "all" | "commerce" | "service";
+  let current: Vertical = "all";
+
+  const applyToggles = () => {
+    document.querySelectorAll<HTMLDivElement>("[data-role='v-toggle']").forEach((group) => {
+      const buttons = group.querySelectorAll<HTMLButtonElement>("button[data-vertical]");
+      const available = Array.from(buttons).map((b) => b.dataset.vertical as Vertical);
+      // For toggles that don't expose "all" (HowItWorks, Testimonials), fall back to commerce when current is "all".
+      const effective: Vertical = available.includes(current) ? current : "commerce";
+      buttons.forEach((b) => b.classList.toggle("active", b.dataset.vertical === effective));
+    });
+
+    // Features: show cards matching current or "both".
+    document.querySelectorAll<HTMLElement>("[data-section='services'] .feat").forEach((card) => {
+      const v = card.dataset.vertical;
+      const visible = current === "all" || v === "both" || v === current;
+      card.dataset.hidden = visible ? "false" : "true";
+    });
+
+    // Testimonials: commerce if current is all or commerce, service otherwise.
+    const testV = current === "service" ? "service" : "commerce";
+    document.querySelectorAll<HTMLElement>("[data-role='test-grid'] .test-card").forEach((card) => {
+      card.dataset.hidden = card.dataset.vertical === testV ? "false" : "true";
+    });
+
+    // HowItWorks: swap grids.
+    const cg = document.querySelector<HTMLElement>("[data-role='how-grid-commerce']");
+    const sg = document.querySelector<HTMLElement>("[data-role='how-grid-service']");
+    const hiwSub = document.querySelector<HTMLElement>("[data-hiw-sub]");
+    if (cg && sg) {
+      const showService = current === "service";
+      cg.style.display = showService ? "none" : "";
+      sg.style.display = showService ? "" : "none";
+      if (hiwSub) {
+        const key = showService ? "copyService" : "copyCommerce";
+        const next = hiwSub.dataset[key];
+        if (next) hiwSub.textContent = next;
+      }
+    }
+
+    // Hero vertical-selector cards.
+    document.querySelectorAll<HTMLButtonElement>("[data-role='vs-cards'] .vs-card").forEach((card) => {
+      const v = card.dataset.vertical;
+      const effective = current === "all" ? "commerce" : current;
+      card.classList.toggle("active", v === effective);
+    });
+  };
+
+  const setVertical = (v: Vertical) => {
+    current = v;
+    applyToggles();
+  };
+
+  // Wire up all toggle buttons.
+  document.querySelectorAll<HTMLDivElement>("[data-role='v-toggle']").forEach((group) => {
+    group.querySelectorAll<HTMLButtonElement>("button[data-vertical]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setVertical(btn.dataset.vertical as Vertical);
+      });
+    });
+  });
+
+  // Hero vertical-selector cards.
+  document.querySelectorAll<HTMLButtonElement>("[data-role='vs-cards'] .vs-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      setVertical(card.dataset.vertical as Vertical);
+    });
+  });
+
+  applyToggles();
+</script>

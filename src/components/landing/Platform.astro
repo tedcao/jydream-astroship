@@ -1,0 +1,43 @@
+---
+const ints: [string, string][] = [
+  ["Shopify", "#95BF47"],
+  ["Amazon", "#FF9900"],
+  ["Stripe", "#635BFF"],
+  ["Twilio", "#F22F46"],
+  ["Resend", "#000000"],
+  ["Google", "#4285F4"],
+  ["Slack", "#4A154B"],
+  ["Clerk", "#6C47FF"],
+  ["Vercel", "#000000"],
+  ["OpenAI", "#10A37F"],
+  ["Gemini", "#4285F4"],
+  ["Claude", "#C15F3C"],
+];
+---
+
+<section class="ld-section ld-section-tight" id="platform">
+  <div class="ld-container">
+    <div class="features-head">
+      <div>
+        <span class="eyebrow">Our platform</span>
+        <h2 class="section-title">
+          Built in-house. <em>Not for sale.</em> Used for you.
+        </h2>
+        <p class="section-sub">
+          JYDream OS is our proprietary operations platform — what our team
+          uses to run your NA business. You get read access; we operate it.
+          These are the systems it stitches together:
+        </p>
+      </div>
+      <a class="btn btn-ghost" href="#case-studies">See it in a demo →</a>
+    </div>
+    <div class="int-grid">
+      {ints.map(([name, color]) => (
+        <div class="int-cell">
+          <div class="int-logo" style={`background: ${color};`}>{name[0]}</div>
+          <span>{name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

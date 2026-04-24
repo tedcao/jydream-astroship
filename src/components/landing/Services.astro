@@ -1,0 +1,353 @@
+---
+import Icons from "./Icons.astro";
+
+type Illus =
+  | "sync"
+  | "ledger"
+  | "ai"
+  | "social"
+  | "timeline"
+  | "acc"
+  | "crm";
+
+interface Service {
+  key: string;
+  tag: "Entry" | "Operate" | "Aftermarket" | "Platform";
+  vertical: "both" | "commerce" | "service";
+  wide?: boolean;
+  coral?: boolean;
+  iconName:
+    | "box"
+    | "wrench"
+    | "coin"
+    | "sparkle"
+    | "share"
+    | "bell"
+    | "users";
+  title: string;
+  bene: string;
+  bullets: string[];
+  illus: Illus;
+}
+
+const services: Service[] = [
+  {
+    key: "strategy",
+    tag: "Entry",
+    vertical: "both",
+    wide: true,
+    coral: true,
+    iconName: "sparkle",
+    title: "Market-entry strategy & positioning for US + Canada.",
+    bene:
+      "We translate your category into North American buyer language. Pricing, positioning, channel mix, and a 12-month GTM roadmap your board can sign off.",
+    bullets: [
+      "Competitive landscape & pricing benchmark (120+ SKUs analyzed)",
+      "Channel mix recommendation: Amazon vs DTC vs retail vs B2B",
+      "Brand-story & naming adaptation for NA consumers",
+      "12-month GTM roadmap with quarterly gates",
+    ],
+    illus: "ai",
+  },
+  {
+    key: "entity",
+    tag: "Entry",
+    vertical: "both",
+    iconName: "coin",
+    title: "Entity, tax & compliance baseline.",
+    bene:
+      "Delaware C-Corp or Ontario Inc., EIN/BN, sales-tax nexus, FDA / CSA / UL filings, customs + HS codes. You sign. We handle the rest.",
+    bullets: [
+      "US + CA entity setup with local registered agent",
+      "Sales-tax & GST/HST registration across all active states",
+      "Product compliance filings (FDA, CSA, UL, FCC as applicable)",
+      "Import broker & HS-code assignment",
+    ],
+    illus: "ledger",
+  },
+  {
+    key: "amazon",
+    tag: "Operate",
+    vertical: "commerce",
+    coral: true,
+    iconName: "box",
+    title: "Amazon & Shopify ops — run by our team.",
+    bene:
+      "Seller Central account health, FBA routing, listing SEO, Shopify DTC build, ad spend — all managed by the same operators who built our platform.",
+    bullets: [
+      "Amazon Brand Registry + A+ content in JYDream house style",
+      "FBA inbound routing across US/CA fulfillment centers",
+      "Shopify storefront build, theme, and checkout in CAD/USD",
+      "Managed PPC & retail media with weekly reporting",
+    ],
+    illus: "sync",
+  },
+  {
+    key: "content",
+    tag: "Operate",
+    vertical: "commerce",
+    iconName: "share",
+    title: "Content, creator & social for North American audiences.",
+    bene:
+      "Our AI-assisted studio generates listing copy, social posts, and creator briefs in native NA voice — then our editors ship them.",
+    bullets: [
+      "Product descriptions & listings written for NA buyers",
+      "Creator outreach (TikTok Shop, IG, YouTube) across US + CA",
+      "Reddit & community seeding for technical categories",
+      "Monthly content calendar, reviewed with your team",
+    ],
+    illus: "social",
+  },
+  {
+    key: "cs",
+    tag: "Operate",
+    vertical: "both",
+    wide: true,
+    iconName: "bell",
+    title: "Local customer service — staffed by us in North America.",
+    bene:
+      "Your customers speak to a JYDream CS agent in their own timezone, not an overseas line. Full escalation path into your engineering team.",
+    bullets: [
+      "Human agents in Pacific + Eastern time zones",
+      "Email, SMS, and live chat all in one customer record",
+      "QC-reviewed warranty + return handling with your policy",
+      "Monthly CSAT report & root-cause summary",
+    ],
+    illus: "timeline",
+  },
+  {
+    key: "accessory",
+    tag: "Aftermarket",
+    vertical: "service",
+    iconName: "wrench",
+    title: "Accessory lifecycle & recurring revenue engine.",
+    bene:
+      "We turn consumables — filters, membranes, pods — into a predictable NA revenue stream using our lifecycle platform.",
+    bullets: [
+      "Per-customer replacement cadence tracking",
+      "Automated 3-touch SMS + email campaigns in NA timezones",
+      "Replenishment fulfilled from our NA 3PL partners",
+      "Revenue attribution & cohort analysis monthly",
+    ],
+    illus: "acc",
+  },
+  {
+    key: "platform",
+    tag: "Platform",
+    vertical: "both",
+    iconName: "users",
+    title: "One operations platform — yours to see, ours to run.",
+    bene:
+      "You get read access to JYDream OS: every order, every NA customer, every service touch. We operate it. You approve major moves.",
+    bullets: [
+      "Unified customer record across Amazon, Shopify, and CS",
+      "Weekly executive brief + raw data export to your team",
+      "Read-only seats for your leadership & finance",
+      "Optional handover path: we train your team in year 2",
+    ],
+    illus: "crm",
+  },
+];
+---
+
+<section class="ld-section" id="services" data-section="services">
+  <div class="ld-container">
+    <div class="features-head">
+      <div>
+        <span class="eyebrow">What we do</span>
+        <h2 class="section-title">
+          A full <em>North American operating team</em>, under one contract.
+        </h2>
+        <p class="section-sub">
+          Strategy, entity, compliance, channel operations, customer service,
+          and aftermarket — staffed by us, running on our platform. Toggle the
+          vertical to filter what's relevant.
+        </p>
+      </div>
+      <div class="v-toggle" data-role="v-toggle">
+        <button type="button" data-vertical="all" class="active">All</button>
+        <button type="button" data-vertical="commerce">
+          <span class="dot dot-c" style="margin-right: 6px;"></span>Consumer
+        </button>
+        <button type="button" data-vertical="service">
+          <span class="dot dot-s" style="margin-right: 6px;"></span>Serviced
+        </button>
+      </div>
+    </div>
+    <div class="features-grid">
+      {services.map((f) => (
+        <article
+          class:list={["feat", f.wide && "feat-wide"]}
+          data-vertical={f.vertical}
+        >
+          <span class={`feat-tag ${f.tag.toLowerCase()}`}>{f.tag}</span>
+          <div class:list={["feat-icon", f.coral && "coral"]}>
+            <Icons name={f.iconName} />
+          </div>
+          <h3 class="feat-title">{f.title}</h3>
+          <p class="feat-bene">{f.bene}</p>
+          <ul class="feat-list">
+            {f.bullets.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+          <div class="feat-illus">
+            {f.illus === "sync" && (
+              <div class="sync-illus">
+                <div class="sync-node">
+                  <div class="sync-node-head">
+                    <span class="sync-node-dot" style="background: #95BF47;"></span>
+                    Shopify · CA
+                  </div>
+                  <div class="sync-node-body">1,284 SKUs · 12m ago</div>
+                </div>
+                <div class="sync-line"></div>
+                <div class="sync-node">
+                  <div class="sync-node-head">
+                    <span class="sync-node-dot" style="background: #FF9900;"></span>
+                    Amazon · US
+                  </div>
+                  <div class="sync-node-body">1,284 SKUs · synced</div>
+                </div>
+              </div>
+            )}
+            {f.illus === "ledger" && (
+              <div class="ledger-illus">
+                <div class="ledger-row">
+                  <span class="ccy">US</span>
+                  <span style="font-size: 11px; font-weight: 600;">Delaware C-Corp</span>
+                  <span class="ledger-method">Filed</span>
+                </div>
+                <div class="ledger-row">
+                  <span class="ccy">CA</span>
+                  <span style="font-size: 11px; font-weight: 600;">Ontario Inc.</span>
+                  <span class="ledger-method">Filed</span>
+                </div>
+                <div class="ledger-row">
+                  <span class="ccy">US</span>
+                  <span style="font-size: 11px; font-weight: 600;">Sales tax · 14 states</span>
+                  <span class="ledger-method">Active</span>
+                </div>
+                <div class="ledger-row">
+                  <span class="ccy">CA</span>
+                  <span style="font-size: 11px; font-weight: 600;">GST/HST</span>
+                  <span class="ledger-method">Active</span>
+                </div>
+              </div>
+            )}
+            {f.illus === "ai" && (
+              <div class="ai-illus">
+                <div class="ai-prompt">
+                  › "Filtered water, premium, launching in US"<span class="ai-caret"></span>
+                </div>
+                <div class="ai-output">
+                  <b>Positioning:</b> Premium countertop filtration for condo &amp; rental markets. Entry SKU $129, target Nordstrom &amp; West Elm…
+                </div>
+                <div class="ai-models">
+                  <span class="ai-model active">US market</span>
+                  <span class="ai-model">CA market</span>
+                  <span class="ai-model">Category fit</span>
+                </div>
+              </div>
+            )}
+            {f.illus === "social" && (
+              <div class="social-illus">
+                <div class="social-post">
+                  <span class="social-post-head">TikTok Shop</span>
+                  <span>Creator brief · 6 drafts shipped this week to NA creators tier 2-3.</span>
+                </div>
+                <div class="social-post">
+                  <span class="social-post-head">Amazon A+</span>
+                  <span>Module 4 rewritten in NA voice. CVR up 2.1pp since rollout.</span>
+                </div>
+                <div class="social-post">
+                  <span class="social-post-head">Reddit</span>
+                  <span>r/Frugal seeding approved — 3 earnest reviews drafted by our editors.</span>
+                </div>
+              </div>
+            )}
+            {f.illus === "timeline" && (
+              <div class="tl-illus">
+                <div class="tl-row">
+                  <span class="tl-dot"></span>
+                  <span class="tl-meta">09:04 PT</span>
+                  <span class="tl-text">Install question · Seattle</span>
+                  <span class="tl-ch">SMS</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-dot" style="background: #22C55E;"></span>
+                  <span class="tl-meta">11:22 ET</span>
+                  <span class="tl-text">Warranty claim · Montréal</span>
+                  <span class="tl-ch">FR · Email</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-dot" style="background: #6366F1;"></span>
+                  <span class="tl-meta">14:08 CT</span>
+                  <span class="tl-text">Replacement order · Austin</span>
+                  <span class="tl-ch">Chat</span>
+                </div>
+                <div class="tl-row">
+                  <span class="tl-dot empty"></span>
+                  <span class="tl-meta">queued</span>
+                  <span class="tl-text">Escalated to engineering</span>
+                  <span class="tl-ch">Handoff</span>
+                </div>
+              </div>
+            )}
+            {f.illus === "acc" && (
+              <div class="acc-illus">
+                <div class="acc-row">
+                  <div class="acc-ico"><Icons name="droplet" /></div>
+                  <div class="acc-meta">
+                    <div class="acc-name">Ceramic filter · NA 3PL</div>
+                    <div class="acc-sub">Every 6 months · Lucía S.</div>
+                  </div>
+                  <span class="acc-due red">Due today</span>
+                </div>
+                <div class="acc-row">
+                  <div class="acc-ico"><Icons name="wrench" size={14} /></div>
+                  <div class="acc-meta">
+                    <div class="acc-name">Heater element · NA 3PL</div>
+                    <div class="acc-sub">Every 12 months · Jin M.</div>
+                  </div>
+                  <span class="acc-due">+3 days</span>
+                </div>
+                <div class="acc-row">
+                  <div class="acc-ico"><Icons name="droplet" /></div>
+                  <div class="acc-meta">
+                    <div class="acc-name">RO membrane · NA 3PL</div>
+                    <div class="acc-sub">Every 24 months · Priya K.</div>
+                  </div>
+                  <span class="acc-due">+18d</span>
+                </div>
+              </div>
+            )}
+            {f.illus === "crm" && (
+              <div class="crm-illus">
+                <div class="crm-head">
+                  <div class="crm-ava">MA</div>
+                  <div class="crm-info">
+                    <div class="crm-name">Maya Anand · Toronto, ON</div>
+                    <div class="crm-email">maya@altura.co</div>
+                  </div>
+                </div>
+                <div class="crm-channels">
+                  <span class="crm-ch email">Email</span>
+                  <span class="crm-ch sms">SMS</span>
+                  <span class="crm-ch chat">Live chat</span>
+                  <span class="crm-ch shopify">Shopify CA</span>
+                  <span class="crm-ch amzn">Amazon US</span>
+                </div>
+                <div class="crm-log">
+                  Apr 18 · order #4821 · $218.00 CAD<br />
+                  Apr 14 · replacement confirmed · shipped<br />
+                  Mar 02 · order #4612 · $98.00 USD
+                </div>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

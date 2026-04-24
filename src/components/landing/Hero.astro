@@ -1,0 +1,160 @@
+---
+import Icons from "./Icons.astro";
+---
+
+<section class="hero" id="top">
+  <div class="hero-grain"></div>
+  <div class="ld-container hero-inner">
+    <div class="hero-top">
+      <span class="pill pill-coral">
+        <span class="dot"></span>Now onboarding brands for 2026 North America entry
+      </span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-title">
+          Your expansion partner for <em>North America</em>.
+        </h1>
+        <p class="hero-sub">
+          JYDream is an expansion services firm for Asian brands and corporates
+          entering the US &amp; Canada. We run your multi-channel operations
+          end-to-end — strategy, entity, Amazon + Shopify, customer service,
+          accessory lifecycle — powered by our in-house operations platform.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn-lg" href="#cta">
+            Book a 30-min consult <Icons name="arrow" />
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#case-studies">See case studies</a>
+        </div>
+        <div class="hero-fine">
+          Free market-entry readiness review · No obligation · NDA on request
+        </div>
+
+        <div class="vs-cards" data-role="vs-cards">
+          <button
+            type="button"
+            class="vs-card active"
+            data-vertical="commerce"
+          >
+            <span class="vs-card-icon"><Icons name="box" size={12} /></span>
+            <span class="vs-card-label">We make</span>
+            <span class="vs-card-title">Consumer products</span>
+            <span class="vs-card-desc">DTC, marketplaces, retail — need a local ops team</span>
+          </button>
+          <button
+            type="button"
+            class="vs-card"
+            data-vertical="service"
+          >
+            <span class="vs-card-icon"><Icons name="wrench" size={12} /></span>
+            <span class="vs-card-label">We sell</span>
+            <span class="vs-card-title">Serviced equipment</span>
+            <span class="vs-card-desc">Water, HVAC, appliances — need local service + parts</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-mocks">
+        <div class="mock-window mock-commerce">
+          <div class="mw-bar">
+            <div class="mw-dots"><span class="mw-dot"></span><span class="mw-dot"></span><span class="mw-dot"></span></div>
+            <div class="mw-url">ops.jydream.com · client: Altura</div>
+            <span class="sync-pill">Managed by JYDream</span>
+          </div>
+          <div class="cdash-inner">
+            <div class="cdash-top">
+              <div>
+                <div class="cdash-title">North America · Weekly brief</div>
+                <div class="cdash-sub">Week 14 · US + CA · 3 channels</div>
+              </div>
+              <span class="pill pill-coral"><span class="dot dot-green"></span>On track</span>
+            </div>
+            <div class="cdash-stats">
+              <div class="cstat"><div class="cstat-label">NA orders</div><div class="cstat-val">1,284</div><div class="cstat-delta">+22%</div></div>
+              <div class="cstat"><div class="cstat-label">GMV</div><div class="cstat-val">$184k</div><div class="cstat-delta">+31%</div></div>
+              <div class="cstat"><div class="cstat-label">Return rate</div><div class="cstat-val">3.1%</div><div class="cstat-delta">-0.8pp</div></div>
+            </div>
+            <div class="ctable">
+              <div class="ctable-head">
+                <span>SKU / Product</span><span>Channels</span><span>Price</span><span>Status</span>
+              </div>
+              <div class="ctable-row">
+                <div>
+                  <div class="name">Ceramic Filter Cartridge</div>
+                  <div class="sku">SKU-4821</div>
+                </div>
+                <div class="chan">
+                  <span class="ch-badge shop">Shopify</span>
+                  <span class="ch-badge amzn">Amazon</span>
+                </div>
+                <div class="price">$42.00</div>
+                <div><span class="sync-pill">Live</span></div>
+              </div>
+              <div class="ctable-row">
+                <div>
+                  <div class="name">Reverse Osmosis Membrane</div>
+                  <div class="sku">SKU-2114</div>
+                </div>
+                <div class="chan">
+                  <span class="ch-badge shop">Shopify</span>
+                </div>
+                <div class="price">$118.00</div>
+                <div><span class="sync-pill">Live</span></div>
+              </div>
+              <div class="ctable-row">
+                <div>
+                  <div class="name">Replacement O-Ring Set</div>
+                  <div class="sku">SKU-0907</div>
+                </div>
+                <div class="chan">
+                  <span class="ch-badge shop">Shopify</span>
+                  <span class="ch-badge amzn">Amazon</span>
+                </div>
+                <div class="price">$8.50</div>
+                <div><span class="sync-pill">Live</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mock-window mock-service">
+          <div class="mw-bar">
+            <div class="mw-dots"><span class="mw-dot"></span><span class="mw-dot"></span><span class="mw-dot"></span></div>
+            <div class="mw-url">ops.jydream.com · service queue</div>
+          </div>
+          <div class="sdash-inner">
+            <div class="sdash-top">
+              <div class="sdash-title">NA service queue · This week</div>
+              <span class="sdash-badge">7 due</span>
+            </div>
+            <div class="sdash-row">
+              <div class="sdash-ava">LS</div>
+              <div class="sdash-meta">
+                <div class="sdash-name">Lucía Salas · Toronto</div>
+                <div class="sdash-desc">Water filter · due today</div>
+              </div>
+              <div class="sdash-status confirmed">Confirmed</div>
+            </div>
+            <div class="sdash-row">
+              <div class="sdash-ava">JM</div>
+              <div class="sdash-meta">
+                <div class="sdash-name">Jin Mercado · Seattle</div>
+                <div class="sdash-desc">Heater element · +3 days</div>
+              </div>
+              <div class="sdash-status sent">SMS sent</div>
+            </div>
+            <div class="sdash-row">
+              <div class="sdash-ava">OK</div>
+              <div class="sdash-meta">
+                <div class="sdash-name">Owen Kim · Vancouver</div>
+                <div class="sdash-desc">O-ring set · +7 days</div>
+              </div>
+              <div class="sdash-status pending">Queued</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

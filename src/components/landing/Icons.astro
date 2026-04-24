@@ -1,0 +1,118 @@
+---
+// Inline SVG icons used across the landing page. Use via <Icons name="arrow" />.
+export interface Props {
+  name:
+    | "arrow"
+    | "box"
+    | "wrench"
+    | "coin"
+    | "sparkle"
+    | "share"
+    | "bell"
+    | "phone"
+    | "droplet"
+    | "users"
+    | "chevron"
+    | "plus"
+    | "check"
+    | "twitter"
+    | "linkedin"
+    | "github"
+    | "youtube";
+  class?: string;
+  size?: number;
+}
+const { name, class: className, size } = Astro.props;
+---
+
+{name === "arrow" && (
+  <svg class:list={["arrow", className]} width={size || 14} height={size || 14} viewBox="0 0 14 14" fill="none">
+    <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "box" && (
+  <svg class={className} width={size || 18} height={size || 18} viewBox="0 0 24 24" fill="none">
+    <path d="M3 7l9-4 9 4v10l-9 4-9-4V7z M3 7l9 4 9-4 M12 11v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "wrench" && (
+  <svg class={className} width={size || 18} height={size || 18} viewBox="0 0 24 24" fill="none">
+    <path d="M14.7 6.3a4 4 0 015.6 5.6l-10 10a2.1 2.1 0 01-3-3l10-10z M11 9l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "coin" && (
+  <svg class={className} width={size || 20} height={size || 20} viewBox="0 0 24 24" fill="none">
+    <ellipse cx="12" cy="7" rx="8" ry="3" stroke="currentColor" stroke-width="1.8" />
+    <path d="M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7 M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" stroke="currentColor" stroke-width="1.8" />
+  </svg>
+)}
+{name === "sparkle" && (
+  <svg class={className} width={size || 20} height={size || 20} viewBox="0 0 24 24" fill="none">
+    <path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z M19 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "share" && (
+  <svg class={className} width={size || 20} height={size || 20} viewBox="0 0 24 24" fill="none">
+    <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.8" />
+    <circle cx="18" cy="6" r="3" stroke="currentColor" stroke-width="1.8" />
+    <circle cx="18" cy="18" r="3" stroke="currentColor" stroke-width="1.8" />
+    <path d="M9 11l6-4 M9 13l6 4" stroke="currentColor" stroke-width="1.8" />
+  </svg>
+)}
+{name === "bell" && (
+  <svg class={className} width={size || 20} height={size || 20} viewBox="0 0 24 24" fill="none">
+    <path d="M6 9a6 6 0 0112 0v4l2 3H4l2-3V9z M10 20a2 2 0 004 0" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "phone" && (
+  <svg class={className} width={size || 20} height={size || 20} viewBox="0 0 24 24" fill="none">
+    <rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8" />
+    <path d="M11 19h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+  </svg>
+)}
+{name === "droplet" && (
+  <svg class={className} width={size || 16} height={size || 16} viewBox="0 0 24 24" fill="none">
+    <path d="M12 3s7 7 7 12a7 7 0 11-14 0c0-5 7-12 7-12z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "users" && (
+  <svg class={className} width={size || 20} height={size || 20} viewBox="0 0 24 24" fill="none">
+    <circle cx="9" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8" />
+    <path d="M2.5 20a6.5 6.5 0 0113 0 M16 11a3 3 0 100-6 M15 20h6a5 5 0 00-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+  </svg>
+)}
+{name === "chevron" && (
+  <svg class={className} width={size || 12} height={size || 12} viewBox="0 0 12 12" fill="none">
+    <path d="M3 4.5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "plus" && (
+  <svg class={className} width={size || 14} height={size || 14} viewBox="0 0 14 14" fill="none">
+    <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+  </svg>
+)}
+{name === "check" && (
+  <svg class={className} width={size || 16} height={size || 16} viewBox="0 0 16 16" fill="none">
+    <path d="M3 8l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+)}
+{name === "twitter" && (
+  <svg class={className} width={size || 16} height={size || 16} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18 3h3l-7 8 8 10h-6l-5-6-5 6H3l7-9L3 3h6l4 5 5-5z" />
+  </svg>
+)}
+{name === "linkedin" && (
+  <svg class={className} width={size || 16} height={size || 16} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v2c.8-1.3 2.3-2.3 4-2.3 3 0 4 2 4 5v5.3h-4v-5c0-1.2-.4-2-1.5-2s-2 .8-2 2v5h-4V10z" />
+  </svg>
+)}
+{name === "github" && (
+  <svg class={className} width={size || 16} height={size || 16} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2a10 10 0 00-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 015 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.8v2.6c0 .3.2.6.7.5A10 10 0 0012 2z" />
+  </svg>
+)}
+{name === "youtube" && (
+  <svg class={className} width={size || 16} height={size || 16} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22 8a3 3 0 00-2-2c-1.8-.5-9-.5-9-.5s-7.2 0-9 .5a3 3 0 00-2 2 30 30 0 000 8 3 3 0 002 2c1.8.5 9 .5 9 .5s7.2 0 9-.5a3 3 0 002-2 30 30 0 000-8zM10 15V9l5 3-5 3z" />
+  </svg>
+)}

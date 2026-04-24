@@ -1,0 +1,28 @@
+---
+const items: [string, string, string][] = [
+  ["01", "Operators, not consultants.", "Most firms hand you a deck and walk away. We run your NA operations — orders, customer service, warranty claims, ad spend — with our own team. The deck is Week 2; the work is Year 2."],
+  ["02", "Our tool is our moat, not our product.", "JYDream OS took three years and four operators to build. Competitors stitch together Shopify + HubSpot + ServiceTitan + spreadsheets. We replaced all of it with one system — so you pay for expertise, not SaaS."],
+  ["03", "Native to both sides of the Pacific.", "Our leadership operated brands in Shenzhen and Toronto. We speak your founders' language and your buyers' language. No translator tax, no time-zone tax."],
+  ["04", "We own our stack, not rent it.", "Our in-house platform replaces what competitors stitch together from Shopify + HubSpot + ServiceTitan + spreadsheets. You pay for expertise and leverage, not a stack of SaaS subscriptions."],
+];
+---
+
+<section class="ld-section">
+  <div class="ld-container">
+    <div class="section-head">
+      <span class="eyebrow">Why JYDream</span>
+      <h2 class="section-title">
+        Four things that make us <em>different</em>.
+      </h2>
+    </div>
+    <div class="diff-grid">
+      {items.map(([n, title, body]) => (
+        <div class="diff-cell">
+          <span class="diff-num">REASON {n}</span>
+          <h3 class="diff-title">{title}</h3>
+          <p class="diff-body">{body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
