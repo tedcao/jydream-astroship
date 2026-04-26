@@ -1,101 +1,58 @@
 ---
 draft: false
-title: "JYDream Roadmap 2024: What's Coming Next"
-snippet: "Get an exclusive look at JYDream's exciting plans for 2024, including new features, platform improvements, and community initiatives."
+title: "Inside the JYDream Dashboard"
+snippet: "What we track during an overseas expansion pilot, and why the Dashboard is part of the service rather than a standalone SaaS product."
 image:
   {
     src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?&fit=crop&w=430&h=240",
-    alt: "JYDream roadmap 2024",
+    alt: "JYDream Dashboard planning",
   }
 publishDate: "2025-07-22"
-category: "Updates"
-author: "JYDream Product Team"
-tags: [roadmap, features, updates]
+category: "Dashboard"
+author: "JYDream Team"
+tags: [dashboard, reporting, overseas-expansion]
 ---
 
-# JYDream Roadmap 2024: What's Coming Next
+# Inside the JYDream Dashboard
 
-We're excited to share our vision for 2024 and beyond. This year, we're focusing on enhancing our platform with new features, improving user experience, and expanding our community initiatives.
+The JYDream Dashboard exists for one reason: overseas expansion work should be visible while it is happening.
 
-## Q2 2024: Enhanced Collaboration Tools
+It is not a standalone SaaS product. Clients do not buy seats and then figure out what to do. The Dashboard is included in the consulting service so both teams can see the same work, the same blockers, and the same decisions.
 
-### New Features
+## What The Dashboard Tracks
 
-- **Real-time Collaboration**: Enhanced co-editing capabilities
-- **Advanced Project Management**: New tools for team coordination
-- **Integrated Communication**: Built-in chat and video conferencing
-- **Smart Notifications**: Context-aware alerts and updates
+During a pilot, the Dashboard usually tracks five kinds of information.
 
-### Platform Improvements
+### Workstreams
 
-- Performance optimizations
-- Enhanced mobile experience
-- Improved accessibility features
-- Updated documentation
+Each engagement has a small number of workstreams: market positioning, channel setup, compliance coordination, customer service, partner search, content adaptation, or aftersales workflow.
 
-## Q3 2024: AI-Powered Innovation
+Keeping these visible prevents the engagement from turning into a long list of scattered tasks.
 
-### AI Integration
+### Blockers
 
-- **Smart Code Assistant**: AI-powered coding suggestions
-- **Automated Testing**: AI-driven test generation
-- **Content Generation**: AI-assisted content creation
-- **Predictive Analytics**: Smart insights and recommendations
+Overseas expansion stalls when blockers are hidden. The Dashboard highlights the items that need a client decision, a partner response, a document, or a local check before work can continue.
 
-### Developer Tools
+### Channel Readiness
 
-- New API endpoints
-- Enhanced SDKs
-- Improved debugging tools
-- Extended integration capabilities
+If the pilot involves Amazon, Shopify, B2B, retail, or service partners, the Dashboard shows what is ready, what is missing, and what should not launch yet.
 
-## Q4 2024: Community & Ecosystem
+### Local Notes
 
-### Community Features
+Local experience is only useful if it turns into better decisions. We capture notes about buyer language, support expectations, partner feedback, pricing reactions, returns, warranty, and category-specific concerns.
 
-- **Community Hub**: Centralized resource center
-- **Expert Network**: Connect with industry leaders
-- **Learning Platform**: Expanded educational resources
-- **Contribution Program**: Enhanced open-source participation
+### Weekly Decisions
 
-### Ecosystem Growth
+Every week should end with a clearer decision: continue, pause, change the channel, update the offer, ask for missing data, or prepare the next phase.
 
-- New partner integrations
-- Marketplace expansion
-- Enhanced security features
-- Global infrastructure improvements
+## Why This Matters
 
-## Beyond 2024: Future Vision
+Expansion projects often fail because leadership sees updates too late. By the time a report is written, the actual work has already moved on.
 
-While we're focused on delivering our 2024 roadmap, we're also planning for the future:
+The Dashboard gives the client a live operating view without asking them to manage every detail. JYDream does the work; the client sees enough to make informed decisions.
 
-### Long-term Goals
+## What Happens After The Free Pilot
 
-- Advanced AI capabilities
-- Global expansion
-- Industry-specific solutions
-- Enhanced security and compliance
+The first two months are free and carry no commitment. If the client continues, the Dashboard becomes the operating layer for the next services engagement. If the client stops, the work remains understandable enough to hand back to the internal team.
 
-## How to Get Involved
-
-We value your input in shaping our future. Here's how you can participate:
-
-1. **Beta Testing**: Join our early access program
-2. **Feature Requests**: Share your ideas on our community forum
-3. **Feedback**: Help us improve through user surveys
-4. **Development**: Contribute to our open-source projects
-
-## Stay Updated
-
-To keep up with our progress:
-
-- Follow our blog for regular updates
-- Join our community newsletter
-- Participate in our webinars
-- Connect with us on social media
-
-## Your Voice Matters
-
-We're building JYDream together with our community. Your feedback and suggestions help us create a platform that truly meets your needs. Share your thoughts and help shape our future!
-
-Stay tuned for more detailed announcements about each feature as we progress through 2024. The best is yet to come!
+That is the point: a good expansion partner should leave behind clarity, not dependency.

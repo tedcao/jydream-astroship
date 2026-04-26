@@ -2,15 +2,15 @@
 type Cell = { kind: "yes" | "no" | "partial" } | { kind: "text"; text: string };
 
 const rows: [string, Cell, Cell, Cell, Cell, Cell][] = [
-  ["Written NA market-entry strategy", { kind: "yes" }, { kind: "yes" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }],
-  ["Entity + tax + product compliance", { kind: "yes" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
-  ["Runs your Amazon + Shopify daily", { kind: "yes" }, { kind: "no" }, { kind: "yes" }, { kind: "no" }, { kind: "no" }],
-  ["NA customer service staffed by us", { kind: "yes" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }],
-  ["Accessory lifecycle & recurring revenue", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
-  ["In-house proprietary platform", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
-  ["Asia-NA founding team", { kind: "yes" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
-  ["Exit path: hand ops to your team", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }],
-  ["First-year all-in cost", { kind: "text", text: "~$85–180k" }, { kind: "text", text: "$200k+" }, { kind: "text", text: "$60k+ you manage" }, { kind: "text", text: "$120k+" }, { kind: "text", text: "Your overhead" }],
+  ["Overseas expansion strategy", { kind: "yes" }, { kind: "yes" }, { kind: "no" }, { kind: "partial" }, { kind: "no" }],
+  ["Market setup + compliance coordination", { kind: "yes" }, { kind: "partial" }, { kind: "no" }, { kind: "no" }, { kind: "partial" }],
+  ["Channel launch services", { kind: "yes" }, { kind: "no" }, { kind: "yes" }, { kind: "partial" }, { kind: "partial" }],
+  ["JYDream Dashboard visibility", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "no" }, { kind: "no" }],
+  ["Local customer and partner experience", { kind: "yes" }, { kind: "partial" }, { kind: "partial" }, { kind: "partial" }, { kind: "partial" }],
+  ["US + Canada operating context", { kind: "yes" }, { kind: "partial" }, { kind: "partial" }, { kind: "yes" }, { kind: "partial" }],
+  ["Asia-to-NA communication bridge", { kind: "yes" }, { kind: "partial" }, { kind: "no" }, { kind: "partial" }, { kind: "partial" }],
+  ["Clean handoff path", { kind: "yes" }, { kind: "no" }, { kind: "no" }, { kind: "partial" }, { kind: "yes" }],
+  ["How it starts", { kind: "text", text: "2 months free" }, { kind: "text", text: "Paid diagnostic" }, { kind: "text", text: "Paid retainer" }, { kind: "text", text: "Paid monthly" }, { kind: "text", text: "Hiring cost" }],
 ];
 const heads = ["Capability", "JYDream", "Big-4 consulting", "Amazon agency", "Fractional GM", "Hiring a team"];
 ---
@@ -20,11 +20,12 @@ const heads = ["Capability", "JYDream", "Big-4 consulting", "Amazon agency", "Fr
     <div class="section-head">
       <span class="eyebrow">The alternatives</span>
       <h2 class="section-title">
-        We don't pitch against SaaS. <em>We pitch against hiring.</em>
+        A consulting partner for expansion, <em>not another SaaS subscription</em>.
       </h2>
       <p class="section-sub">
-        Most brands entering NA pick one of five paths. Here's how we compare
-        honestly against each.
+        Companies entering North America usually choose between consultants,
+        agencies, a fractional GM, or hiring locally. JYDream combines service
+        execution, Dashboard visibility, and local experience.
       </p>
     </div>
     <div class="cmp-wrap">
@@ -60,7 +61,7 @@ const heads = ["Capability", "JYDream", "Big-4 consulting", "Amazon agency", "Fr
       </table>
     </div>
     <p class="cmp-cap">
-      Most Asian brands overspend on consultancies and under-spend on operators. We're the operator line-item.
+      The first two months are free, with no commitment to continue.
     </p>
   </div>
 </section>

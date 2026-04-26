@@ -1,96 +1,56 @@
 ---
 draft: false
-title: "Welcome to JYDream - Where Dreams Take Flight"
-snippet: "Discover how JYDream is transforming the startup landscape by providing comprehensive incubation support, mentorship, and resources to help innovative ideas become successful businesses."
+title: "Welcome to JYDream: A Consulting Partner for Overseas Expansion"
+snippet: "Why JYDream focuses on services, Dashboard visibility, and local experience for companies entering the US and Canada."
 image:
   {
     src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?&fit=crop&w=430&h=240",
-    alt: "JYDream incubator",
+    alt: "JYDream overseas expansion consulting",
   }
 publishDate: "2025-04-12"
 category: "Company"
 author: "JYDream Team"
-tags: [incubator, startup, innovation]
+tags: [overseas-expansion, consulting, north-america]
 ---
 
-# Welcome to JYDream - Where Dreams Take Flight
+# Welcome to JYDream: A Consulting Partner for Overseas Expansion
 
-At JYDream, we're more than just an incubator – we're a launchpad for innovation and entrepreneurship. Our mission is to transform promising ideas into successful businesses by providing comprehensive support, mentorship, and resources.
+JYDream exists for companies that already have a serious product or operating base at home and now need to enter a new market with less guesswork. Our current focus is helping Asian companies expand into the US and Canada.
 
-## Our Incubation Approach
+We are a consulting services firm, not a SaaS vendor. The work is practical: understand the market, choose the right first channels, adapt the offer for local buyers, coordinate the launch work, and keep leadership informed while decisions are being made.
 
-We believe in a holistic approach to startup incubation:
+## The Three Parts Of The JYDream Model
 
-### 1. Comprehensive Support
+### 1. Consulting Services
 
-- Business development guidance
-- Market research and validation
-- Funding strategy and connections
-- Legal and regulatory assistance
-- Operational support
+Services are the core of the engagement. Depending on the company, that can include market-entry strategy, positioning, channel planning, compliance coordination, customer-service workflow design, partner selection, and operating reviews.
 
-### 2. Expert Mentorship
+The goal is not to produce a deck that sits in a folder. The goal is to make the next overseas move clear enough to act on.
 
-- Access to industry leaders
-- One-on-one coaching sessions
-- Peer-to-peer learning
-- Regular feedback and guidance
-- Networking opportunities
+### 2. JYDream Dashboard
 
-### 3. Resource Access
+The Dashboard gives both teams a shared view of the engagement. It tracks workstreams, blockers, channel readiness, customer notes, weekly decisions, and the operating rhythm of the pilot.
 
-- Co-working spaces
-- Business tools and software
-- Research facilities
-- Testing environments
-- Industry connections
+The Dashboard is included in the service. It is not sold as a standalone subscription. It exists so the consulting work stays visible and accountable.
 
-## Who We Help
+### 3. Local Experience
 
-We support a diverse range of startups and entrepreneurs:
+North American buyers, partners, service teams, marketplaces, and compliance expectations all have their own habits. Small differences can become expensive when a company tries to operate overseas from far away.
 
-- Early-stage startups
-- Tech innovators
-- Social enterprises
-- Research-based ventures
-- Creative industries
+JYDream brings local context into the work: how buyers read product claims, how partners expect to communicate, how returns and warranty should be handled, and where a company should slow down before committing budget.
 
-## Our Success Formula
+## Why We Start With Two Free Months
 
-What makes JYDream different:
+It is hard to judge an overseas expansion partner from a proposal alone. So we start with a free two-month pilot and no commitment.
 
-1. **Personalized Approach**: Every startup gets a customized incubation plan
-2. **Strong Network**: Access to investors, mentors, and industry experts
-3. **Practical Focus**: Emphasis on real-world implementation and growth
-4. **Long-term Support**: Continued assistance even after graduation
+During that pilot, we agree on a focused scope, do real work, and use the Dashboard to show progress. After two months, the company can continue with a scoped services engagement, bring the work back in-house, or stop.
 
-## Join Our Community
+That structure keeps the relationship honest. The first decision is not "sign a long contract." The first decision is "let's see whether this work is useful."
 
-Whether you're:
+## Who This Is For
 
-- A first-time entrepreneur
-- An experienced founder
-- A researcher with a commercial idea
-- A team with a vision
+JYDream is best suited for companies that want to enter or scale in the US and Canada and need help with both thinking and execution.
 
-JYDream provides the support and resources you need to succeed.
+Good fits often include product brands, serviced products, industrial accessories, home systems, water and air categories, specialty consumer goods, and companies that already have a strong home-market business but limited local operating capacity overseas.
 
-## Get Started
-
-Ready to turn your dream into reality? Here's how to begin:
-
-1. Submit your application
-2. Join our orientation program
-3. Meet your dedicated mentor
-4. Start your incubation journey
-
-## Our Commitment
-
-We're committed to:
-
-- Supporting diverse and innovative ideas
-- Providing practical, actionable guidance
-- Building a strong entrepreneurial community
-- Creating sustainable business success
-
-Join us at JYDream, where we don't just incubate businesses – we nurture dreams and build futures.
+The common thread is simple: overseas expansion is a serious business move, not just a website launch. JYDream helps make that move more concrete.

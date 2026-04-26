@@ -19,9 +19,10 @@ publishedBlogEntries.sort(function (a, b) {
 <Layout title="Blog">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
+      <Fragment slot="title">Articles & Field Notes</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        Notes on overseas expansion, digital operations, local customer
+        experience, and the practical work behind JYDream engagements.
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -49,6 +50,9 @@ publishedBlogEntries.sort(function (a, b) {
                     <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
                       {blogPostEntry.data.title}
                     </h2>
+                    <p class="text-gray-600 mt-3 leading-relaxed">
+                      {blogPostEntry.data.snippet}
+                    </p>
 
                     <div class="flex gap-2 mt-3">
                       <span class="text-gray-400">

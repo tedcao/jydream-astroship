@@ -3,10 +3,10 @@ import Icons from "./Icons.astro";
 
 type Col = [string, string[]];
 const cols: Col[] = [
-  ["Services", ["Market entry", "Operations", "Customer service", "Aftermarket & service", "Platform"]],
-  ["Who we serve", ["Consumer brands", "Serviced equipment", "Industrial B2B", "Multi-brand corporates"]],
-  ["Company", ["About", "Team", "Careers", "Partners", "Press"]],
-  ["Contact", ["Book a consult", "Toronto office", "Shenzhen office", "Seattle office", "NDA & legal"]],
+  ["Solutions", ["Consulting services", "JYDream Dashboard", "Local experience", "Channel launch", "Customer service"]],
+  ["Who we serve", ["Enterprise overseas teams", "Product brands", "Serviced products", "Industrial B2B", "Multi-brand corporates"]],
+  ["Company", ["About", "Blog", "Articles", "Partners", "Privacy"]],
+  ["Contact", ["Start free for 2 months", "Book a consult", "Toronto", "Shenzhen", "Seattle"]],
 ];
 const year = new Date().getFullYear();
 ---
@@ -19,9 +19,9 @@ const year = new Date().getFullYear();
           <span class="logo-mark"><span>J</span></span>JYDream
         </a>
         <p class="footer-brand-desc">
-          Cross-border operations partner for Asian brands and corporates
-          expanding into the US &amp; Canada. We run your North American
-          business so you can keep building the product.
+          Consulting partner for Asian companies expanding overseas. We combine
+          services, the JYDream Dashboard, and local experience in the US &amp;
+          Canada.
         </p>
       </div>
       {cols.map(([title, links]) => (
@@ -34,7 +34,7 @@ const year = new Date().getFullYear();
       ))}
     </div>
     <div class="footer-bottom">
-      <div>© {year} JYDream Partners · A services firm, not a SaaS</div>
+      <div>© {year} JYDream Partners · Consulting services for overseas expansion</div>
       <div class="footer-social">
         <a href="#" aria-label="LinkedIn"><Icons name="linkedin" /></a>
         <a href="#" aria-label="Twitter"><Icons name="twitter" /></a>

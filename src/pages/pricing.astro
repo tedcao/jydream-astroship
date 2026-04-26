@@ -6,65 +6,69 @@ import PricingCard from "@components/pricing.astro";
 
 const pricing = [
   {
-    name: "Starter",
-    price: "From $1,999",
-    popular: false,
-    features: [
-      "Professional Website Development",
-      "Basic SEO Optimization",
-      "Mobile Responsive Design",
-      "Contact Form Integration",
-      "Social Media Integration",
-      "3 Months Support",
-    ],
-    button: {
-      text: "Get Started",
-      link: "/contact",
-    },
-  },
-  {
-    name: "Business Growth",
-    price: "From $4,999",
+    name: "Free Pilot",
+    price: "$0",
     popular: true,
     features: [
-      "All Starter Features",
-      "E-commerce Integration",
-      "Digital Advertising Setup",
-      "Sales Network Development",
-      "Content Marketing Strategy",
-      "6 Months Priority Support",
+      "First 2 months free",
+      "No commitment to continue",
+      "Focused overseas expansion scope",
+      "JYDream Dashboard visibility",
+      "Weekly working session",
+      "Mutual NDA on request",
     ],
     button: {
-      text: "Get Started",
+      text: "Start free",
       link: "/contact",
     },
   },
   {
-    name: "Enterprise",
-    price: "Custom",
+    name: "Consulting Services",
+    price: "Scoped after pilot",
     popular: false,
     features: [
-      "All Business Growth Features",
-      "Business Model Optimization",
-      "Custom Software Development",
-      "Advanced Analytics & Reporting",
-      "Dedicated Digital Strategist",
-      "12 Months Premium Support",
+      "Market-entry strategy",
+      "Channel launch planning",
+      "Compliance and partner coordination",
+      "Customer service workflow design",
+      "Local messaging and sales materials",
+      "Executive operating review",
     ],
     button: {
-      text: "Contact us",
+      text: "Book a consult",
+      link: "/contact",
+    },
+  },
+  {
+    name: "Dashboard + Local Experience",
+    price: "Included",
+    popular: false,
+    features: [
+      "Shared JYDream Dashboard",
+      "Local US + Canada operating notes",
+      "Customer, channel, and partner tracking",
+      "Read-only leadership visibility",
+      "Monthly learning summary",
+      "Clean handoff path",
+    ],
+    button: {
+      text: "Talk to us",
       link: "/contact",
     },
   },
 ];
 ---
 
-<Layout title="Pricing">
+<Layout
+  title="Start free for 2 months"
+  description="Start a JYDream overseas expansion pilot free for 2 months, with no commitment to continue."
+>
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Service Packages</Fragment>
+      <Fragment slot="title">Start free for 2 months.</Fragment>
       <Fragment slot="desc">
-        Tailored digital transformation solutions for businesses of all sizes.
+        No commitment. If the pilot proves useful, we scope the next services
+        engagement together.
       </Fragment>
     </Sectionhead>
 

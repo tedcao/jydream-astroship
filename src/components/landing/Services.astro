@@ -12,7 +12,7 @@ type Illus =
 
 interface Service {
   key: string;
-  tag: "Entry" | "Operate" | "Aftermarket" | "Platform";
+  tag: "Services" | "Dashboard" | "Local";
   vertical: "both" | "commerce" | "service";
   wide?: boolean;
   coral?: boolean;
@@ -33,117 +33,117 @@ interface Service {
 const services: Service[] = [
   {
     key: "strategy",
-    tag: "Entry",
+    tag: "Services",
     vertical: "both",
     wide: true,
     coral: true,
     iconName: "sparkle",
-    title: "Market-entry strategy & positioning for US + Canada.",
+    title: "Enterprise overseas expansion strategy for US + Canada.",
     bene:
-      "We translate your category into North American buyer language. Pricing, positioning, channel mix, and a 12-month GTM roadmap your board can sign off.",
+      "We turn a broad overseas ambition into a practical market-entry plan: buyer language, category fit, channel sequence, risk list, and a 12-month roadmap your leadership can make decisions from.",
     bullets: [
-      "Competitive landscape & pricing benchmark (120+ SKUs analyzed)",
-      "Channel mix recommendation: Amazon vs DTC vs retail vs B2B",
-      "Brand-story & naming adaptation for NA consumers",
-      "12-month GTM roadmap with quarterly gates",
+      "Category and competitor benchmark for US + Canada",
+      "Positioning, pricing, and channel-entry recommendation",
+      "Brand-story and naming adaptation for local buyers",
+      "12-month roadmap with ownership, budget, and decision gates",
     ],
     illus: "ai",
   },
   {
     key: "entity",
-    tag: "Entry",
+    tag: "Services",
     vertical: "both",
     iconName: "coin",
-    title: "Entity, tax & compliance baseline.",
+    title: "Market setup, compliance, and launch operations.",
     bene:
-      "Delaware C-Corp or Ontario Inc., EIN/BN, sales-tax nexus, FDA / CSA / UL filings, customs + HS codes. You sign. We handle the rest.",
+      "We coordinate the practical setup work that slows overseas expansion down: entity decisions, tax registration, product compliance, import paths, channel accounts, and launch checklists.",
     bullets: [
-      "US + CA entity setup with local registered agent",
-      "Sales-tax & GST/HST registration across all active states",
-      "Product compliance filings (FDA, CSA, UL, FCC as applicable)",
-      "Import broker & HS-code assignment",
+      "US + CA entity, tax, and registered-agent coordination",
+      "Product compliance checklist and partner referrals",
+      "Import broker, HS-code, and 3PL launch path",
+      "Amazon, Shopify, B2B, or retail account readiness",
     ],
     illus: "ledger",
   },
   {
     key: "amazon",
-    tag: "Operate",
+    tag: "Services",
     vertical: "commerce",
     coral: true,
     iconName: "box",
-    title: "Amazon & Shopify ops — run by our team.",
+    title: "Channel launch services across Amazon, Shopify, and B2B.",
     bene:
-      "Seller Central account health, FBA routing, listing SEO, Shopify DTC build, ad spend — all managed by the same operators who built our platform.",
+      "We help your first overseas channels go live with local buyer copy, listing structure, fulfillment decisions, reporting cadence, and the operators needed to keep the work moving.",
     bullets: [
-      "Amazon Brand Registry + A+ content in JYDream house style",
-      "FBA inbound routing across US/CA fulfillment centers",
-      "Shopify storefront build, theme, and checkout in CAD/USD",
-      "Managed PPC & retail media with weekly reporting",
+      "Amazon and Shopify launch planning for US + Canada",
+      "Listing, storefront, and offer structure in local language",
+      "Fulfillment and return-flow setup with local partners",
+      "Weekly operating review during the free pilot",
     ],
     illus: "sync",
   },
   {
     key: "content",
-    tag: "Operate",
+    tag: "Local",
     vertical: "commerce",
     iconName: "share",
-    title: "Content, creator & social for North American audiences.",
+    title: "Local messaging and customer acquisition experience.",
     bene:
-      "Our AI-assisted studio generates listing copy, social posts, and creator briefs in native NA voice — then our editors ship them.",
+      "Overseas expansion often fails in translation. We help adapt product stories, sales materials, creator briefs, and community language to how North American buyers actually evaluate products.",
     bullets: [
-      "Product descriptions & listings written for NA buyers",
-      "Creator outreach (TikTok Shop, IG, YouTube) across US + CA",
-      "Reddit & community seeding for technical categories",
-      "Monthly content calendar, reviewed with your team",
+      "Product descriptions and sales materials in local voice",
+      "Creator and partner outreach briefs for US + CA audiences",
+      "Community and review strategy for technical categories",
+      "Monthly learning notes from customer and channel feedback",
     ],
     illus: "social",
   },
   {
     key: "cs",
-    tag: "Operate",
+    tag: "Local",
     vertical: "both",
     wide: true,
     iconName: "bell",
-    title: "Local customer service — staffed by us in North America.",
+    title: "Local customer service, partner coordination, and aftersales.",
     bene:
-      "Your customers speak to a JYDream CS agent in their own timezone, not an overseas line. Full escalation path into your engineering team.",
+      "Your customers, channel partners, and installers need answers in their own timezone. We help build the local operating layer so your overseas business does not feel overseas to the buyer.",
     bullets: [
-      "Human agents in Pacific + Eastern time zones",
-      "Email, SMS, and live chat all in one customer record",
-      "QC-reviewed warranty + return handling with your policy",
-      "Monthly CSAT report & root-cause summary",
+      "Customer service coverage across Pacific and Eastern time zones",
+      "Warranty, returns, and escalation workflow design",
+      "Local 3PL, service partner, and installer coordination",
+      "Monthly issue summary with root-cause recommendations",
     ],
     illus: "timeline",
   },
   {
     key: "accessory",
-    tag: "Aftermarket",
+    tag: "Local",
     vertical: "service",
     iconName: "wrench",
-    title: "Accessory lifecycle & recurring revenue engine.",
+    title: "Local playbooks for serviced products and recurring parts.",
     bene:
-      "We turn consumables — filters, membranes, pods — into a predictable NA revenue stream using our lifecycle platform.",
+      "For products that need service, parts, or replenishment, we help design the local operating playbook before small issues become brand-damaging overseas support problems.",
     bullets: [
-      "Per-customer replacement cadence tracking",
-      "Automated 3-touch SMS + email campaigns in NA timezones",
-      "Replenishment fulfilled from our NA 3PL partners",
-      "Revenue attribution & cohort analysis monthly",
+      "Replacement and replenishment cadence planning",
+      "Local service and warranty workflows",
+      "Parts inventory logic with North American 3PL partners",
+      "Customer cohort and repeat-order review",
     ],
     illus: "acc",
   },
   {
     key: "platform",
-    tag: "Platform",
+    tag: "Dashboard",
     vertical: "both",
     iconName: "users",
-    title: "One operations platform — yours to see, ours to run.",
+    title: "JYDream Dashboard — the service layer you can see.",
     bene:
-      "You get read access to JYDream OS: every order, every NA customer, every service touch. We operate it. You approve major moves.",
+      "The Dashboard is not a SaaS product we sell. It is the shared workspace for your engagement: tasks, channels, customer notes, blockers, decisions, and weekly reporting in one place.",
     bullets: [
-      "Unified customer record across Amazon, Shopify, and CS",
-      "Weekly executive brief + raw data export to your team",
-      "Read-only seats for your leadership & finance",
-      "Optional handover path: we train your team in year 2",
+      "Client-visible task board and weekly executive brief",
+      "Channel, customer, and service notes connected to decisions",
+      "Read-only access for leadership, finance, and operators",
+      "Clean handover path if you later build your own local team",
     ],
     illus: "crm",
   },
@@ -156,18 +156,19 @@ const services: Service[] = [
       <div>
         <span class="eyebrow">What we do</span>
         <h2 class="section-title">
-          A full <em>North American operating team</em>, under one contract.
+          Services, Dashboard, and <em>local experience</em>.
         </h2>
         <p class="section-sub">
-          Strategy, entity, compliance, channel operations, customer service,
-          and aftermarket — staffed by us, running on our platform. Toggle the
-          vertical to filter what's relevant.
+          JYDream is a consulting service for enterprise overseas expansion.
+          We combine hands-on services, our JYDream Dashboard, and local
+          North American experience so your team can enter the market with less
+          guesswork.
         </p>
       </div>
       <div class="v-toggle" data-role="v-toggle">
         <button type="button" data-vertical="all" class="active">All</button>
         <button type="button" data-vertical="commerce">
-          <span class="dot dot-c" style="margin-right: 6px;"></span>Consumer
+          <span class="dot dot-c" style="margin-right: 6px;"></span>Product
         </button>
         <button type="button" data-vertical="service">
           <span class="dot dot-s" style="margin-right: 6px;"></span>Serviced

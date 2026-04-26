@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import Icons from "./Icons.astro";
+
+const posts = await getCollection("blog", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+posts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const featuredPosts = posts.slice(0, 6);
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+---
+
+{
+  featuredPosts.length > 0 && (
+    <section class="ld-section ld-section-tight" id="articles">
+      <div class="ld-container">
+        <div class="features-head">
+          <div>
+            <span class="eyebrow">Articles</span>
+            <h2 class="section-title">
+              Field notes from <em>real expansion work</em>.
+            </h2>
+            <p class="section-sub">
+              Case studies, operating notes, and lessons from helping companies
+              build their overseas presence with local execution.
+            </p>
+          </div>
+          <a class="btn btn-ghost" href="/blog">
+            View all articles <Icons name="arrow" />
+          </a>
+        </div>
+        <div class="article-grid">
+          {featuredPosts.map((post, index) => (
+            <a class="article-card" href={`/blog/${post.slug}`}>
+              <img
+                src={post.data.image.src}
+                alt={post.data.image.alt}
+                loading={index <= 2 ? "eager" : "lazy"}
+                decoding={index <= 2 ? "sync" : "async"}
+              />
+              <div class="article-card-body">
+                <div class="article-meta">
+                  <span>{post.data.category}</span>
+                  <time datetime={post.data.publishDate.toISOString()}>
+                    {formatDate(post.data.publishDate)}
+                  </time>
+                </div>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.snippet}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

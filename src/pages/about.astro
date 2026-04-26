@@ -11,30 +11,38 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 });
 ---
 
-<Layout title="About">
+<Layout
+  title="About"
+  description="JYDream is a consulting partner for Asian companies expanding overseas into the US and Canada."
+>
   <Container>
     <Sectionhead>
       <Fragment slot="title">About JYDream</Fragment>
-      <Fragment slot="desc">Driving digital transformation for businesses of all sizes.</Fragment>
+      <Fragment slot="desc">Consulting services, Dashboard visibility, and local experience for companies expanding overseas.</Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering businesses in the digital age.
+        Helping companies enter North America with fewer blind spots.
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        At JYDream, we understand the challenges businesses face in adapting to the rapidly evolving digital landscape. 
-        Our mission is to provide comprehensive digital transformation solutions that help our clients not just survive, 
-        but thrive in this new era.
+        JYDream is a consulting services firm for Asian companies expanding
+        overseas, with a practical focus on the US and Canada. We help teams
+        move from "we should go overseas" to a clear plan, a focused pilot, and
+        local execution that customers and partners can trust.
       </p>
       <p class="text-lg leading-relaxed text-slate-500 mt-4">
-        Founded by a team of digital experts with diverse backgrounds in technology, marketing, and business strategy, 
-        JYDream brings a holistic approach to digital transformation. We don't just build websites or run ad campaigns - 
-        we partner with you to reimagine your entire business model for the digital age.
+        Our solution has three parts: consulting services, the JYDream Dashboard,
+        and local experience. The services cover strategy, channel launch,
+        compliance coordination, customer experience, and operating reviews. The
+        Dashboard keeps the work visible. The local experience helps translate
+        decisions into the habits, standards, and expectations of North American
+        buyers.
       </p>
       <p class="text-lg leading-relaxed text-slate-500 mt-4">
-        Whether you're a small business taking your first steps online or an established company looking to optimize your 
-        digital presence, JYDream provides tailored solutions to meet your unique needs and goals.
+        We start with a free two-month pilot and no commitment. That gives both
+        sides enough time to test the relationship with real work before
+        deciding whether a longer services engagement makes sense.
       </p>
     </div>
     <!-- <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">

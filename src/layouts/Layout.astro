@@ -25,7 +25,7 @@ const { title, description, structuredData, landing = false } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "JYDream"
-  : "JYDream - Where Dreams Come True";
+  : "JYDream - Overseas Expansion Consulting";
 ---
 
 <!doctype html>
@@ -45,7 +45,7 @@ const makeTitle = title
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description={description || "JYDream helps bring your dreams to reality through comprehensive incubation support, mentorship, and resources for startups and entrepreneurs."}
+      description={description || "JYDream helps Asian companies expand overseas with consulting services, the JYDream Dashboard, and local experience in the US & Canada."}
       canonical={canonicalURL}
       twitter={{
         creator: "@jydream",
@@ -56,11 +56,11 @@ const makeTitle = title
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `JYDream - Where Dreams Come True`,
+          title: `JYDream - Overseas Expansion Consulting`,
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "JYDream Homepage Screenshot",
+          alt: "JYDream overseas expansion consulting",
         },
       }}
     />
