@@ -1,0 +1,93 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+
+const checklist = [
+  "English website and overseas-facing product pages",
+  "B2B inquiry and buyer follow-up workflow",
+  "North America buyer questions and trust signals",
+  "GEO and AI-search-friendly service and product content",
+  "Accountant, tax, compliance, and setup question preparation",
+  "Capital-market and listing-readiness context when relevant",
+];
+---
+
+<Layout
+  title="China Export Consulting"
+  description="JYDream helps China exporters and factories prepare for North America with English websites, product presentation, inquiry workflows, GEO content, accountant/tax partner coordination, and market-entry context."
+>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">China export consulting for North America readiness.</Fragment>
+      <Fragment slot="desc">
+        We help China-based factories and product companies make their overseas
+        presence easier for buyers, partners, search engines, and AI answer
+        systems to understand.
+      </Fragment>
+    </Sectionhead>
+
+    <section class="mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-[1fr_0.9fr]">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-[#F04E3E]">
+          China exporters · North America market entry
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-gray-900">
+          Strong products still need a credible overseas-facing system.
+        </h2>
+        <p class="mt-5 text-lg leading-relaxed text-slate-600">
+          Overseas buyers need to understand what the company makes, how to ask
+          questions, what can be customized, and why the supplier is credible.
+          JYDream helps turn that into practical website, content, inquiry, and
+          operating workflows.
+        </p>
+      </div>
+      <div class="rounded-lg border border-gray-200 bg-white p-6">
+        <div class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+          Readiness checklist
+        </div>
+        <ul class="mt-5 space-y-3 text-slate-700">
+          {checklist.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+          We help organize the first overseas impression.
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          That can include English website structure, product page clarity,
+          inquiry routing, sales materials, buyer FAQs, and content that
+          explains the company in natural North America business language.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+          We coordinate when questions become professional.
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          When setup, tax, accounting, compliance, audit, financing, or listing
+          questions appear, we help prepare context and coordinate with licensed
+          professionals where formal advice is required.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-16 max-w-5xl rounded-lg border border-gray-200 bg-gray-50 p-8">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+            Start with one overseas-readiness workflow.
+          </h2>
+          <p class="mt-3 leading-relaxed text-slate-600">
+            First 2 months free. No commitment. Mutual NDA available on request.
+          </p>
+        </div>
+        <Link href="/contact">Start free pilot</Link>
+      </div>
+    </section>
+  </Container>
+</Layout>

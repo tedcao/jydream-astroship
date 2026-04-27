@@ -1,0 +1,84 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+
+const faqs = [
+  {
+    q: "What does JYDream actually do?",
+    a: "JYDream is a Toronto-based consulting and implementation partner. We help with websites, customer service workflows, sales follow-up, accessory reminders, China export readiness, GEO content, and partner coordination.",
+  },
+  {
+    q: "Are you a SaaS company?",
+    a: "No. The JYDream Dashboard is a working layer we use with clients. The main service is consulting, implementation, and local operating support.",
+  },
+  {
+    q: "Who do you mainly serve?",
+    a: "We mainly serve Toronto-area businesses and China-based companies preparing for overseas customers, especially North America buyers.",
+  },
+  {
+    q: "What does the free two-month pilot include?",
+    a: "We choose one focused workflow, build the first useful version, review it with you, and decide whether a larger paid engagement makes sense. There is no commitment during the pilot.",
+  },
+  {
+    q: "Can you help with tax, accounting, or capital-market questions?",
+    a: "We can help organize the business context and coordinate conversations with global accountant, tax, legal, audit, or securities partners. Formal advice should come from licensed professionals.",
+  },
+  {
+    q: "Can you help with Nasdaq listing or financing preparation?",
+    a: "We understand the general operating context around capital markets and listing-readiness conversations. We can help organize questions and materials, but licensed securities, legal, audit, and financial advisors must provide formal guidance.",
+  },
+  {
+    q: "What is GEO?",
+    a: "GEO means making website content easier for search engines and AI answer systems to understand. For us, that means clear service pages, local signals, FAQs, client questions, and specific content instead of vague marketing copy.",
+  },
+  {
+    q: "Do you sign NDAs?",
+    a: "Yes. Mutual NDA is available on request, especially for China exporters, factories, product launches, partner conversations, or capital-market preparation.",
+  },
+];
+---
+
+<Layout
+  title="FAQ"
+  description="Frequently asked questions about JYDream's Toronto consulting services, free two-month pilot, JYDream Dashboard, China export readiness, GEO content, tax/accounting partner coordination, and capital-market context."
+>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Questions clients ask before starting.</Fragment>
+      <Fragment slot="desc">
+        Clear answers about the free pilot, consulting services, Dashboard,
+        Toronto work, China exporters, partner coordination, and GEO.
+      </Fragment>
+    </Sectionhead>
+
+    <section class="mx-auto mt-16 max-w-4xl divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white">
+      {
+        faqs.map((item) => (
+          <article class="p-6">
+            <h2 class="text-xl font-semibold tracking-tight text-gray-900">
+              {item.q}
+            </h2>
+            <p class="mt-3 leading-relaxed text-slate-600">{item.a}</p>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="mx-auto mt-16 max-w-4xl rounded-lg border border-gray-200 bg-gray-50 p-8">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+            Still not sure where to start?
+          </h2>
+          <p class="mt-3 leading-relaxed text-slate-600">
+            Send the messy version. We can help turn it into a practical first
+            workflow.
+          </p>
+        </div>
+        <Link href="/contact">Ask JYDream</Link>
+      </div>
+    </section>
+  </Container>
+</Layout>

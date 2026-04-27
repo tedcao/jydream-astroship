@@ -47,14 +47,19 @@ if (type === 'blog' && data) {
       "customer service workflow",
       "accessory reminder systems",
       "China exporter overseas expansion",
+      "GEO and AI search content",
       "US and Canada tax partner coordination",
       "Nasdaq listing readiness",
       "capital market readiness"
     ],
-    "sameAs": [
-      "https://twitter.com/jydream",
-      "https://linkedin.com/company/jydream"
-    ]
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-647-553-7802",
+      "email": "ted@jydream.ca",
+      "contactType": "customer service",
+      "areaServed": ["CA", "US", "CN"],
+      "availableLanguage": ["English", "Chinese"]
+    }
   };
 } else if (type === 'website') {
   structuredData = {
@@ -68,13 +73,24 @@ if (type === 'blog' && data) {
       "China company overseas expansion",
       "customer service workflows",
       "accessory reminder systems",
+      "GEO and AI search content",
       "tax and accounting partner coordination",
       "capital market readiness"
     ],
     "publisher": {
       "@type": "Organization",
       "name": "JYDream"
-    }
+    },
+    "hasPart": [
+      { "@type": "WebPage", "name": "Services", "url": "https://www.jydream.ca/services/" },
+      { "@type": "WebPage", "name": "Toronto Business Consulting", "url": "https://www.jydream.ca/toronto-business-consulting/" },
+      { "@type": "WebPage", "name": "China Export Consulting", "url": "https://www.jydream.ca/china-export-consulting/" },
+      { "@type": "WebPage", "name": "Client Work", "url": "https://www.jydream.ca/client-work/" },
+      { "@type": "WebPage", "name": "JYDream Dashboard", "url": "https://www.jydream.ca/dashboard/" },
+      { "@type": "WebPage", "name": "Blog", "url": "https://www.jydream.ca/blog/" },
+      { "@type": "WebPage", "name": "FAQ", "url": "https://www.jydream.ca/faq/" },
+      { "@type": "ContactPage", "name": "Contact", "url": "https://www.jydream.ca/contact/" }
+    ]
   };
 }
 ---

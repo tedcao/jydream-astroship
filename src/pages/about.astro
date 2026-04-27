@@ -1,72 +1,147 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
 
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+const audiences = [
+  {
+    title: "Toronto service businesses",
+    text: "Local companies that need a clearer website, better lead capture, customer service workflow, sales follow-up, and reminder logic.",
+  },
+  {
+    title: "China exporters and factories",
+    text: "China-based teams preparing English websites, product pages, inquiry flows, North America buyer communication, and local partner questions.",
+  },
+  {
+    title: "Owners who need context",
+    text: "Founders who want practical help across digital operations, Canada/US market entry, accountant coordination, and capital-market readiness conversations.",
+  },
+];
+
+const principles = [
+  "Consulting first, tools second.",
+  "Start with one painful workflow, not a giant transformation plan.",
+  "Make the business easier for customers, staff, search engines, and AI answer engines to understand.",
+  "Coordinate with licensed accounting, tax, legal, audit, or securities professionals when the work requires formal advice.",
+];
 ---
 
 <Layout
-  title="About"
-  description="JYDream is a Toronto-based consulting partner for local service businesses and China exporters."
+  title="About JYDream"
+  description="JYDream is a Toronto-based consulting and implementation partner serving Toronto businesses and China exporters with websites, customer service workflows, sales follow-up, accessory reminders, partner coordination, and North America market-entry support."
 >
   <Container>
     <Sectionhead>
-      <Fragment slot="title">About JYDream</Fragment>
-      <Fragment slot="desc">Toronto-based consulting for local service businesses and China exporters.</Fragment>
+      <Fragment slot="title">A Toronto consulting partner for messy growth.</Fragment>
+      <Fragment slot="desc">
+        JYDream helps Toronto businesses and China-based companies turn scattered
+        leads, service notes, sales follow-up, reminders, and overseas expansion
+        questions into practical operating systems.
+      </Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Helping owners make growth less messy.
-      </h2>
-      <p class="text-lg leading-relaxed text-slate-500">
-        JYDream is a Toronto-based consulting and implementation partner. We
-        mainly serve local Toronto businesses that need cleaner digital
-        operations, and China-based companies preparing for overseas markets.
-      </p>
-      <p class="text-lg leading-relaxed text-slate-500 mt-4">
-        We help with websites, customer service workflows, sales support,
-        accessory reminder systems, English product presentation, and North
-        America expansion planning. When tax, accounting, or capital-market
-        questions appear, we coordinate the discussion with global accountant
-        and tax partners so licensed professionals can advise where needed.
-      </p>
-      <p class="text-lg leading-relaxed text-slate-500 mt-4">
-        We start with a free two-month pilot and no commitment. That gives both
-        sides enough time to test the relationship with real work before
-        deciding whether a longer services engagement makes sense.
-      </p>
-    </div>
-    <!-- <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400}
-                height={400}
-                class="w-full rounded-sm transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
-              />
-            </div>
+    <section class="mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-wide text-[#F04E3E]">
+          Toronto-based · Serving Toronto and China clients
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-gray-900">
+          We are not selling another SaaS subscription.
+        </h2>
+        <div class="mt-5 space-y-5 text-lg leading-relaxed text-slate-600">
+          <p>
+            JYDream is a consulting and implementation service. We build the
+            practical pieces that make growth easier to manage: websites,
+            customer service workflows, sales support, accessory reminders,
+            product presentation, and overseas-facing content.
+          </p>
+          <p>
+            The JYDream Dashboard is part of the service. It gives owners a
+            shared place to see leads, tasks, customer questions, reminder
+            timing, partner questions, and weekly decisions. The point is
+            visibility and execution, not software dependency.
+          </p>
+          <p>
+            We start with a free two-month pilot and no commitment. The first
+            engagement is intentionally narrow so both sides can judge the work
+            with real evidence.
+          </p>
+        </div>
+      </div>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
-          </div>
-        ))
-      }
-    </div> -->
+      <aside class="rounded-lg border border-gray-200 bg-white p-6">
+        <div class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+          What we can help with
+        </div>
+        <ul class="mt-4 space-y-3 text-slate-700">
+          <li>Website and lead workflow</li>
+          <li>Customer service and FAQ handling</li>
+          <li>Sales follow-up and owner visibility</li>
+          <li>Accessory, service, or replacement reminders</li>
+          <li>China export readiness and English presentation</li>
+          <li>Accountant, tax, and capital-market partner coordination</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="mx-auto mt-16 max-w-5xl">
+      <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+        Who we mainly serve
+      </h2>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        {
+          audiences.map((item) => (
+            <article class="rounded-lg border border-gray-200 bg-white p-6">
+              <h3 class="text-lg font-semibold text-gray-900">{item.title}</h3>
+              <p class="mt-3 leading-relaxed text-slate-600">{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+          Our client work
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          For WaterDoctor.ca, JYDream helped with the website, customer service
+          workflow, sales support, and accessory reminder setup. We also serve
+          China-based product businesses and factories, including Mozu Doll and
+          JY Doll, with overseas-facing digital operations and market-entry
+          preparation.
+        </p>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          Some work is confidential, especially when a company is still testing
+          a new market, preparing an overseas brand, or organizing partner
+          discussions.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+          How we work
+        </h2>
+        <ul class="mt-4 space-y-3 text-slate-600">
+          {principles.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-16 max-w-5xl rounded-lg border border-gray-200 bg-gray-50 p-8">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+            Start with one workflow.
+          </h2>
+          <p class="mt-3 leading-relaxed text-slate-600">
+            First 2 months free. No commitment. Mutual NDA available on request.
+          </p>
+        </div>
+        <Link href="/contact">Start free pilot</Link>
+      </div>
+    </section>
   </Container>
 </Layout>

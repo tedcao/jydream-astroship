@@ -1,21 +1,82 @@
-<footer class="my-20">
-  <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} JYDream. All rights reserved.
-    <span class="mx-1">|</span>
-    <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
-  </p>
-  <!--
-    Can we ask you a favor 🙏
-    Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
-  -->
-  <!-- <p class="text-center text-xs text-slate-500 mt-1">
-    Made by <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline">
-      Web3Templates
-    </a>
-  </p> -->
+---
+const year = new Date().getFullYear();
+
+const cols = [
+  {
+    title: "Services",
+    links: [
+      ["Consulting services", "/services"],
+      ["Toronto business consulting", "/toronto-business-consulting"],
+      ["China export consulting", "/china-export-consulting"],
+      ["JYDream Dashboard", "/dashboard"],
+      ["Client work", "/client-work"],
+      ["Start free", "/contact"],
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      ["About", "/about"],
+      ["Blog", "/blog"],
+      ["FAQ", "/faq"],
+      ["Pricing", "/pricing"],
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      ["Privacy Policy", "/privacy-policy"],
+      ["Terms", "/terms"],
+    ],
+  },
+];
+---
+
+<footer class="mt-24 border-t border-gray-200 bg-gray-50">
+  <div class="mx-auto max-w-(--breakpoint-xl) px-5 py-12">
+    <div class="grid gap-10 md:grid-cols-[1.2fr_2fr]">
+      <div>
+        <a href="/" class="text-lg">
+          <span class="font-bold text-slate-800">JY</span><span class="text-slate-500">Dream</span>
+        </a>
+        <p class="mt-4 max-w-md leading-relaxed text-slate-600">
+          Toronto-based consulting for local businesses and China exporters:
+          websites, customer service workflows, sales follow-up, accessory
+          reminders, dashboard visibility, and partner coordination.
+        </p>
+        <div class="mt-4 text-sm text-slate-500">
+          <a href="mailto:ted@jydream.ca" class="hover:underline">ted@jydream.ca</a>
+          <span class="mx-2">·</span>
+          <a href="tel:+16475537802" class="hover:underline">+1 (647) 553-7802</a>
+        </div>
+      </div>
+
+      <div class="grid gap-8 sm:grid-cols-3">
+        {
+          cols.map((col) => (
+            <div>
+              <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                {col.title}
+              </h2>
+              <ul class="mt-4 space-y-3 text-sm text-slate-600">
+                {
+                  col.links.map(([label, href]) => (
+                    <li>
+                      <a href={href} class="hover:text-slate-900">
+                        {label}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-10 border-t border-gray-200 pt-6 text-sm text-slate-500">
+      Copyright © {year} JYDream. All rights reserved.
+    </div>
+  </div>
 </footer>

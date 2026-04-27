@@ -20,7 +20,7 @@ const { Content } = await entry.render();
 <Layout title={entry.data.title} description={entry.data.snippet} structuredData={entry.data}>
   <Container>
     <div class="mx-auto max-w-3xl mt-14">
-      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+      <span class="text-[#F04E3E] uppercase tracking-wider text-sm font-medium">
         {entry.data.category}
       </span>
       <h1
@@ -51,12 +51,23 @@ const { Content } = await entry.render();
     <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
       <Content />
     </div>
-    <div class="text-center mt-8">
+    <div class="mx-auto mt-12 grid max-w-3xl gap-4 rounded-lg border border-gray-200 bg-gray-50 p-6 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900">Want to apply this to your business?</h2>
+        <p class="mt-2 text-slate-600">
+          Start with one workflow. First 2 months free, no commitment.
+        </p>
+      </div>
       <a
-        href="/blog"
-        class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-        >← Back to Blog</a
+        href="/contact"
+        class="rounded-sm bg-black px-5 py-3 text-center text-white transition hover:bg-gray-800"
+        >Start free pilot</a
       >
+    </div>
+    <div class="text-center mt-8">
+      <a href="/blog" class="text-slate-600 underline underline-offset-4">
+        Back to Blog
+      </a>
     </div>
   </Container>
 </Layout>

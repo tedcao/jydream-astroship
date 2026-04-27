@@ -1,0 +1,69 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+---
+
+<Layout
+  title="Terms"
+  description="Terms for using the JYDream website and contacting JYDream about consulting services, free pilot work, dashboard support, and partner coordination."
+>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Terms</Fragment>
+      <Fragment slot="desc">
+        Plain-English website terms for JYDream visitors and prospective
+        consulting clients.
+      </Fragment>
+    </Sectionhead>
+
+    <article class="prose prose-lg mx-auto mt-16 max-w-3xl">
+      <p>
+        This website is operated by JYDream. By using this website or contacting
+        us through the website, you agree to these terms.
+      </p>
+
+      <h2>Website information</h2>
+      <p>
+        The content on this website is provided for general information about
+        JYDream's consulting and implementation services. It is not professional
+        tax, legal, audit, securities, investment, or accounting advice.
+      </p>
+
+      <h2>Professional advice</h2>
+      <p>
+        JYDream may help clients organize questions and coordinate conversations
+        with accountant, tax, legal, audit, securities, or other professional
+        partners. Formal advice and sign-off must come from licensed
+        professionals.
+      </p>
+
+      <h2>Free pilot</h2>
+      <p>
+        The first two months may be offered as a free pilot for one focused
+        workflow. Scope, timing, availability, confidentiality terms, and next
+        steps are confirmed directly with each client.
+      </p>
+
+      <h2>Confidentiality</h2>
+      <p>
+        Mutual NDA is available on request. Please do not submit highly
+        sensitive information through the website form unless we have agreed on
+        a secure intake process.
+      </p>
+
+      <h2>External links</h2>
+      <p>
+        This website may link to client websites or third-party services. Those
+        websites are operated by their own owners and may have separate terms
+        and privacy policies.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about these terms can be sent to
+        <a href="mailto:ted@jydream.ca">ted@jydream.ca</a>.
+      </p>
+    </article>
+  </Container>
+</Layout>

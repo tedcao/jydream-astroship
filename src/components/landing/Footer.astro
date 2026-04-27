@@ -1,12 +1,11 @@
 ---
-import Icons from "./Icons.astro";
-
-type Col = [string, string[]];
+type LinkItem = [string, string];
+type Col = [string, LinkItem[]];
 const cols: Col[] = [
-  ["Solutions", ["Consulting services", "JYDream Dashboard", "Tax/accounting partners", "Capital-market readiness", "Local experience"]],
-  ["Who we serve", ["Toronto local businesses", "China exporters", "Product brands", "Serviced products", "B2B factories"]],
-  ["Company", ["About", "Blog", "Articles", "Partners", "Privacy"]],
-  ["Contact", ["Start free for 2 months", "Book a consult", "Toronto", "China clients", "NDA & legal"]],
+  ["Services", [["Consulting services", "/services"], ["JYDream Dashboard", "/dashboard"], ["Client work", "/client-work"], ["Pricing", "/pricing"]]],
+  ["Who we serve", [["Toronto businesses", "/toronto-business-consulting"], ["China exporters", "/china-export-consulting"], ["WaterDoctor.ca work", "/client-work"], ["FAQ", "/faq"]]],
+  ["Company", [["About", "/about"], ["Blog", "/blog"], ["Contact", "/contact"], ["Privacy", "/privacy-policy"]]],
+  ["Start", [["2 months free", "/contact"], ["Book a consult", "/contact"], ["Terms", "/terms"], ["Email us", "mailto:ted@jydream.ca"]]],
 ];
 const year = new Date().getFullYear();
 ---
@@ -27,8 +26,8 @@ const year = new Date().getFullYear();
       {cols.map(([title, links]) => (
         <div class="footer-col">
           <div class="footer-col-title">{title}</div>
-          {links.map((l) => (
-            <a href="#">{l}</a>
+          {links.map(([label, href]) => (
+            <a href={href}>{label}</a>
           ))}
         </div>
       ))}
@@ -36,12 +35,13 @@ const year = new Date().getFullYear();
     <div class="footer-bottom">
       <div>© {year} JYDream Partners · Consulting services for overseas expansion</div>
       <div class="footer-social">
-        <a href="#" aria-label="LinkedIn"><Icons name="linkedin" /></a>
-        <a href="#" aria-label="Twitter"><Icons name="twitter" /></a>
-        <a href="#" aria-label="YouTube"><Icons name="youtube" /></a>
+        <a href="mailto:ted@jydream.ca" aria-label="Email">Email</a>
+        <a href="https://wa.me/16475537802" aria-label="WhatsApp">WhatsApp</a>
       </div>
       <div>
         <a href="/privacy-policy" style="color: inherit; font-size: 13px;">Privacy Policy</a>
+        <span style="color: inherit; font-size: 13px;"> · </span>
+        <a href="/terms" style="color: inherit; font-size: 13px;">Terms</a>
       </div>
     </div>
   </div>

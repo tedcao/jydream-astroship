@@ -1,0 +1,122 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Link from "@components/ui/link.astro";
+
+const clientWork = [
+  {
+    name: "WaterDoctor.ca",
+    type: "Toronto-area service business",
+    summary:
+      "Website, customer service workflow, sales support, and accessory reminder setup for a local water service business.",
+    details: ["Website foundation", "Customer inquiry workflow", "Sales follow-up support", "Accessory and replacement reminders"],
+    href: "https://waterdoctor.ca",
+  },
+  {
+    name: "Mozu Doll",
+    type: "China-based product business",
+    summary:
+      "Overseas-facing digital operations and buyer-readiness support for a China-based product company.",
+    details: ["English-facing presentation", "Product and brand clarity", "Inquiry workflow planning", "North America context"],
+    href: "https://mozudoll.com",
+  },
+  {
+    name: "JY Doll",
+    type: "China exporter / product brand",
+    summary:
+      "Support around overseas website presence, product communication, and practical market-entry preparation.",
+    details: ["Product page structure", "Buyer-facing content", "Operational notes", "Export readiness"],
+    href: "https://jydoll.com",
+  },
+  {
+    name: "Confidential China exporters",
+    type: "Manufacturing and product categories",
+    summary:
+      "Some companies prefer not to be named while testing overseas positioning, supplier relationships, or partner conversations.",
+    details: ["North America entry planning", "Website and content structure", "Partner question preparation", "GEO and AI search readiness"],
+  },
+];
+---
+
+<Layout
+  title="Client Work"
+  description="JYDream client work includes WaterDoctor.ca in Toronto and China-based exporters such as Mozu Doll and JY Doll, with services across websites, customer service workflows, sales support, reminders, and overseas market-entry preparation."
+>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Client work with practical outcomes.</Fragment>
+      <Fragment slot="desc">
+        We do not invent logos. These are the kinds of client problems JYDream
+        has helped with: website clarity, customer service, sales follow-up,
+        reminders, and overseas-facing operations.
+      </Fragment>
+    </Sectionhead>
+
+    <section class="mx-auto mt-16 grid max-w-6xl gap-5 md:grid-cols-2">
+      {
+        clientWork.map((item) => (
+          <article class="rounded-lg border border-gray-200 bg-white p-6">
+            <div class="text-sm font-semibold uppercase tracking-wide text-[#F04E3E]">
+              {item.type}
+            </div>
+            <h2 class="mt-3 text-2xl font-semibold tracking-tight text-gray-900">
+              {item.name}
+            </h2>
+            <p class="mt-3 leading-relaxed text-slate-600">{item.summary}</p>
+            <ul class="mt-5 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
+            {item.href && (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-5 inline-block text-sm font-semibold text-gray-900 underline underline-offset-4">
+                Visit website
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="mx-auto mt-16 grid max-w-5xl gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+          What clients usually need
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          Most clients do not come to us asking for software. They come because
+          customer messages are hard to track, follow-up is inconsistent, their
+          website does not explain the business clearly, or the overseas market
+          feels difficult to enter.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+          Why the pilot works
+        </h2>
+        <p class="mt-4 leading-relaxed text-slate-600">
+          A two-month pilot is enough time to choose one workflow, build a first
+          version, collect owner feedback, and decide whether a larger services
+          engagement is worth it.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-16 max-w-5xl rounded-lg border border-gray-200 bg-gray-50 p-8">
+      <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          <h2 class="text-2xl font-semibold tracking-tight text-gray-900">
+            Bring one messy workflow.
+          </h2>
+          <p class="mt-3 leading-relaxed text-slate-600">
+            We will tell you if a free pilot is a useful next step.
+          </p>
+        </div>
+        <Link href="/contact">Talk to JYDream</Link>
+      </div>
+    </section>
+  </Container>
+</Layout>
