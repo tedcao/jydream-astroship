@@ -7,25 +7,50 @@ import Contactform from "@components/contactform.astro";
 ---
 
 <Layout
-  title="Contact"
-  description="Contact JYDream to start a free two-month overseas expansion pilot with no commitment."
+  title="Start a Free Pilot"
+  description="Contact JYDream in Toronto to start a free two-month consulting pilot for website leads, customer service workflows, accessory reminders, China export readiness, or tax/accounting partner coordination."
 >
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Contact Us</Fragment>
-      <Fragment slot="desc">Start with a free two-month overseas expansion pilot. No commitment.</Fragment>
+      <Fragment slot="title">Start with 2 free months.</Fragment>
+      <Fragment slot="desc">No commitment. Pick one messy workflow and we will build the first useful version with you.</Fragment>
     </Sectionhead>
 
-    <div class="mx-auto max-w-4xl mt-16">
-      <div class="grid md:grid-cols-2 gap-10">
+    <div class="mx-auto max-w-5xl mt-16">
+      <div class="grid md:grid-cols-[0.9fr_1.1fr] gap-10">
         <div>
-          <h2 class="font-medium text-2xl text-gray-800">Talk with JYDream</h2>
-          <p class="text-lg leading-relaxed text-slate-500 mt-3">
-            Tell us what you are trying to do overseas, where you are in the
-            process, and what is blocking progress. We will use the first call
-            to decide whether a free two-month pilot is a useful next step.
+          <p class="text-sm font-semibold tracking-wide uppercase text-[#F04E3E]">
+            Toronto-based · Serving Toronto and China clients
           </p>
-          <div class="mt-5">
+          <h2 class="font-medium text-3xl text-gray-900 mt-3">
+            Tell us the business problem, not the software feature list.
+          </h2>
+          <p class="text-lg leading-relaxed text-slate-500 mt-4">
+            We are useful when growth is becoming operationally messy: leads are
+            not followed up, customers ask the same questions, reminders are
+            manual, or a China-based business needs a credible North America
+            setup.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="rounded-lg border border-gray-200 bg-white p-5">
+              <div class="font-semibold text-gray-900">What the free pilot covers</div>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-slate-600">
+                <li>Website leads, sales follow-up, and simple CRM workflow</li>
+                <li>Customer service, FAQ handling, and accessory reminders</li>
+                <li>China export readiness and accountant/tax partner coordination</li>
+              </ul>
+            </div>
+            <div class="rounded-lg border border-gray-200 bg-white p-5">
+              <div class="font-semibold text-gray-900">How we start</div>
+              <p class="mt-2 text-slate-600">
+                One workflow. First 2 months free. No commitment to continue.
+                Mutual NDA available on request.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8">
             <div class="flex items-center mt-2 space-x-2 text-gray-600">
               <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
                 href="mailto:ted@jydream.ca"

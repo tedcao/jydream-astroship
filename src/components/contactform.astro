@@ -2,19 +2,27 @@
 import Button from "./ui/button.astro";
 ---
 
-<!-- To make this contact form work, create your free access key from https://web3forms.com/
-     Then you will get all form submissions in your email inbox. -->
 <form
   action="https://api.web3forms.com/submit"
   method="POST"
-  id="form"
+  id="contact-form"
   class="needs-validation"
   novalidate>
   <input type="hidden" name="access_key" value="c2b11354-96b5-4644-89d4-741b5fed9d63" />
-  <!-- Create your free access key from https://web3forms.com/ -->
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
-  <input type="hidden" name="from_website" value="JYDream Contact Form" />
-  <input type="hidden" name="subject" value="New Contact Form Submission from JYDream Website" />
+  <input type="hidden" name="from_website" value="JYDream Free Pilot Request" />
+  <input type="hidden" name="subject" value="New JYDream free pilot request" />
+  <input type="hidden" name="page_url" value="/contact" />
+
+  <div class="mb-5 rounded-lg border border-[#ffc7bf] bg-[#FFF1EE] px-5 py-4">
+    <div class="text-sm font-semibold uppercase tracking-wide text-[#F04E3E]">
+      Free pilot request
+    </div>
+    <p class="mt-1 text-slate-700">
+      First 2 months free. No commitment. We usually start with one workflow.
+    </p>
+  </div>
+
   <div class="mb-5">
     <input
       type="text"
@@ -28,10 +36,10 @@ import Button from "./ui/button.astro";
     </div>
   </div>
   <div class="mb-5">
-    <label for="email_address" class="sr-only">Email Address</label><input
+    <label for="email_address" class="sr-only">Work Email</label><input
       id="email_address"
       type="email"
-      placeholder="Email Address"
+      placeholder="Work Email"
       name="email"
       required
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
@@ -46,16 +54,35 @@ import Button from "./ui/button.astro";
   <div class="mb-5">
     <input
       type="text"
-      placeholder="Company (Optional)"
+      placeholder="Company / Website (Optional)"
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
       name="company"
     />
+  </div>
+  <div class="mb-5">
+    <label for="service_need" class="sr-only">What do you need help with?</label>
+    <select
+      id="service_need"
+      name="service_need"
+      required
+      class="w-full px-4 py-3 border-2 rounded-md outline-hidden focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100 bg-white text-gray-800">
+      <option value="" disabled selected>What do you need help with?</option>
+      <option value="Website leads / sales follow-up">Website leads / sales follow-up</option>
+      <option value="Customer service workflow">Customer service workflow</option>
+      <option value="Accessory reminders">Accessory reminders</option>
+      <option value="China export readiness">China export readiness</option>
+      <option value="Tax/accounting partner coordination">Tax/accounting partner coordination</option>
+      <option value="Not sure yet">Not sure yet</option>
+    </select>
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+      Please choose one area.
+    </div>
   </div>
   <div class="mb-3">
     <textarea
       name="message"
       required
-      placeholder="Tell us about your overseas expansion goals"
+      placeholder="What is messy right now? A few sentences is enough."
       class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-hidden h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
     ></textarea>
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
@@ -67,8 +94,8 @@ import Button from "./ui/button.astro";
       By submitting this form, you agree to our <a href="/privacy-policy" class="text-gray-600 underline">privacy policy</a>.
     </div>
   </div>
-  <Button type="submit" size="lg" block>Send Message</Button>
-  <div id="result" class="mt-3 text-center"></div>
+  <Button type="submit" size="lg" block>Start free pilot</Button>
+  <div id="result" class="mt-3 text-center text-sm"></div>
 </form>
 
 <style>
@@ -92,10 +119,12 @@ import Button from "./ui/button.astro";
 </style>
 
 <script is:inline>
-  const form = document.getElementById("form");
+  const form = document.getElementById("contact-form");
   const result = document.getElementById("result");
+  const submitButton = form.querySelector("button[type='submit']");
+  const initialButtonText = submitButton.textContent;
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
     form.classList.add("was-validated");
     if (!form.checkValidity()) {
@@ -103,40 +132,46 @@ import Button from "./ui/button.astro";
       return;
     }
     const formData = new FormData(form);
+    formData.set("page_url", window.location.href);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
-    result.innerHTML = "Sending...";
+    result.style.display = "block";
+    result.className = "mt-3 text-center text-sm text-slate-500";
+    result.innerHTML = "Sending your request...";
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
 
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
-    })
-      .then(async (response) => {
-        let json = await response.json();
-        if (response.status == 200) {
-          result.classList.add("text-green-500");
-          result.innerHTML = json.message;
-        } else {
-          console.log(response);
-          result.classList.add("text-red-500");
-          result.innerHTML = json.message;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        result.innerHTML = "Something went wrong!";
-      })
-      .then(function () {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        result.className = "mt-3 text-center text-sm text-green-600";
+        result.innerHTML = "Thanks — your request was sent. We'll reply from ted@jydream.ca.";
         form.reset();
         form.classList.remove("was-validated");
         setTimeout(() => {
           result.style.display = "none";
         }, 5000);
-      });
+      } else {
+        result.className = "mt-3 text-center text-sm text-red-500";
+        result.innerHTML = data.message || "Could not send right now. Please email ted@jydream.ca.";
+      }
+    } catch (error) {
+      console.log(error);
+      result.className = "mt-3 text-center text-sm text-red-500";
+      result.innerHTML = "Could not send right now. Please email ted@jydream.ca.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = initialButtonText;
+    }
   });
 </script>

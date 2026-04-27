@@ -12,7 +12,7 @@ type Illus =
 
 interface Service {
   key: string;
-  tag: "Services" | "Dashboard" | "Local";
+  tag: "Toronto" | "China" | "Partners" | "Dashboard";
   vertical: "both" | "commerce" | "service";
   wide?: boolean;
   coral?: boolean;
@@ -32,120 +32,67 @@ interface Service {
 
 const services: Service[] = [
   {
-    key: "strategy",
-    tag: "Services",
+    key: "website-sales",
+    tag: "Toronto",
     vertical: "both",
     wide: true,
     coral: true,
     iconName: "sparkle",
-    title: "Enterprise overseas expansion strategy for US + Canada.",
+    title: "Your website gets visitors, but the follow-up is messy.",
     bene:
-      "We turn a broad overseas ambition into a practical market-entry plan: buyer language, category fit, channel sequence, risk list, and a 12-month roadmap your leadership can make decisions from.",
+      "For Toronto service businesses, we build the practical digital layer around the website: inquiry forms, booking paths, sales follow-up, customer records, and reporting.",
     bullets: [
-      "Category and competitor benchmark for US + Canada",
-      "Positioning, pricing, and channel-entry recommendation",
-      "Brand-story and naming adaptation for local buyers",
-      "12-month roadmap with ownership, budget, and decision gates",
-    ],
-    illus: "ai",
-  },
-  {
-    key: "entity",
-    tag: "Services",
-    vertical: "both",
-    iconName: "coin",
-    title: "Market setup, compliance, and launch operations.",
-    bene:
-      "We coordinate the practical setup work that slows overseas expansion down: entity decisions, tax registration, product compliance, import paths, channel accounts, and launch checklists.",
-    bullets: [
-      "US + CA entity, tax, and registered-agent coordination",
-      "Product compliance checklist and partner referrals",
-      "Import broker, HS-code, and 3PL launch path",
-      "Amazon, Shopify, B2B, or retail account readiness",
-    ],
-    illus: "ledger",
-  },
-  {
-    key: "amazon",
-    tag: "Services",
-    vertical: "commerce",
-    coral: true,
-    iconName: "box",
-    title: "Channel launch services across Amazon, Shopify, and B2B.",
-    bene:
-      "We help your first overseas channels go live with local buyer copy, listing structure, fulfillment decisions, reporting cadence, and the operators needed to keep the work moving.",
-    bullets: [
-      "Amazon and Shopify launch planning for US + Canada",
-      "Listing, storefront, and offer structure in local language",
-      "Fulfillment and return-flow setup with local partners",
-      "Weekly operating review during the free pilot",
+      "Website and landing pages that explain the service clearly",
+      "Lead capture, booking requests, and sales follow-up workflow",
+      "Simple reporting so owners know where inquiries are coming from",
     ],
     illus: "sync",
   },
   {
-    key: "content",
-    tag: "Local",
-    vertical: "commerce",
-    iconName: "share",
-    title: "Local messaging and customer acquisition experience.",
-    bene:
-      "Overseas expansion often fails in translation. We help adapt product stories, sales materials, creator briefs, and community language to how North American buyers actually evaluate products.",
-    bullets: [
-      "Product descriptions and sales materials in local voice",
-      "Creator and partner outreach briefs for US + CA audiences",
-      "Community and review strategy for technical categories",
-      "Monthly learning notes from customer and channel feedback",
-    ],
-    illus: "social",
-  },
-  {
-    key: "cs",
-    tag: "Local",
+    key: "customer-service",
+    tag: "Toronto",
     vertical: "both",
-    wide: true,
     iconName: "bell",
-    title: "Local customer service, partner coordination, and aftersales.",
+    title: "Customers ask questions, but support lives in too many places.",
     bene:
-      "Your customers, channel partners, and installers need answers in their own timezone. We help build the local operating layer so your overseas business does not feel overseas to the buyer.",
+      "We organize customer service, sales notes, and reminders so a local business can respond faster without losing context.",
     bullets: [
-      "Customer service coverage across Pacific and Eastern time zones",
-      "Warranty, returns, and escalation workflow design",
-      "Local 3PL, service partner, and installer coordination",
-      "Monthly issue summary with root-cause recommendations",
+      "Email, form, SMS, and service requests in one workflow",
+      "Accessory or replacement reminders for recurring revenue",
+      "Owner-friendly handoff notes for every customer interaction",
     ],
     illus: "timeline",
   },
   {
-    key: "accessory",
-    tag: "Local",
-    vertical: "service",
-    iconName: "wrench",
-    title: "Local playbooks for serviced products and recurring parts.",
+    key: "china-export",
+    tag: "China",
+    vertical: "commerce",
+    coral: true,
+    iconName: "box",
+    title: "China factories need a credible overseas-facing presence.",
     bene:
-      "For products that need service, parts, or replenishment, we help design the local operating playbook before small issues become brand-damaging overseas support problems.",
+      "We help China-based factories and brands prepare for English-speaking buyers with clearer websites, product pages, sales materials, and inquiry flows.",
     bullets: [
-      "Replacement and replenishment cadence planning",
-      "Local service and warranty workflows",
-      "Parts inventory logic with North American 3PL partners",
-      "Customer cohort and repeat-order review",
+      "English website and product presentation for overseas buyers",
+      "B2B inquiry forms, catalog structure, and sales material",
+      "North America market-entry notes before spending heavily",
     ],
-    illus: "acc",
+    illus: "social",
   },
   {
-    key: "platform",
-    tag: "Dashboard",
-    vertical: "both",
-    iconName: "users",
-    title: "JYDream Dashboard — the service layer you can see.",
+    key: "tax-capital",
+    tag: "Partners",
+    vertical: "commerce",
+    iconName: "coin",
+    title: "Expansion questions often become tax, accounting, or financing questions.",
     bene:
-      "The Dashboard is not a SaaS product we sell. It is the shared workspace for your engagement: tasks, channels, customer notes, blockers, decisions, and weekly reporting in one place.",
+      "We coordinate with global accountant and tax partners and help founders understand the practical questions behind US/Canada setup, Nasdaq listing paths, and capital-market conversations.",
     bullets: [
-      "Client-visible task board and weekly executive brief",
-      "Channel, customer, and service notes connected to decisions",
-      "Read-only access for leadership, finance, and operators",
-      "Clean handover path if you later build your own local team",
+      "Global accountant and tax partner coordination",
+      "US/Canada setup, sales tax, GST/HST, and compliance questions",
+      "Capital-market readiness context for licensed advisors",
     ],
-    illus: "crm",
+    illus: "ledger",
   },
 ];
 ---
@@ -156,23 +103,14 @@ const services: Service[] = [
       <div>
         <span class="eyebrow">What we do</span>
         <h2 class="section-title">
-          Services, Dashboard, and <em>local experience</em>.
+          We fix the operational gaps that block growth.
         </h2>
         <p class="section-sub">
-          JYDream is a consulting service for enterprise overseas expansion.
-          We combine hands-on services, our JYDream Dashboard, and local
-          North American experience so your team can enter the market with less
-          guesswork.
+          Most clients do not need another abstract strategy deck. They need a
+          clearer website, faster follow-up, organized customer service,
+          reliable reminders, and the right partners for tax, accounting, and
+          overseas expansion decisions.
         </p>
-      </div>
-      <div class="v-toggle" data-role="v-toggle">
-        <button type="button" data-vertical="all" class="active">All</button>
-        <button type="button" data-vertical="commerce">
-          <span class="dot dot-c" style="margin-right: 6px;"></span>Product
-        </button>
-        <button type="button" data-vertical="service">
-          <span class="dot dot-s" style="margin-right: 6px;"></span>Serviced
-        </button>
       </div>
     </div>
     <div class="features-grid">
@@ -198,41 +136,41 @@ const services: Service[] = [
                 <div class="sync-node">
                   <div class="sync-node-head">
                     <span class="sync-node-dot" style="background: #95BF47;"></span>
-                    Shopify · CA
+                    Website inquiry
                   </div>
-                  <div class="sync-node-body">1,284 SKUs · 12m ago</div>
+                  <div class="sync-node-body">New customer · service request</div>
                 </div>
                 <div class="sync-line"></div>
                 <div class="sync-node">
                   <div class="sync-node-head">
                     <span class="sync-node-dot" style="background: #FF9900;"></span>
-                    Amazon · US
+                    Sales follow-up
                   </div>
-                  <div class="sync-node-body">1,284 SKUs · synced</div>
+                  <div class="sync-node-body">Owner notified · next step logged</div>
                 </div>
               </div>
             )}
             {f.illus === "ledger" && (
               <div class="ledger-illus">
                 <div class="ledger-row">
-                  <span class="ccy">US</span>
-                  <span style="font-size: 11px; font-weight: 600;">Delaware C-Corp</span>
-                  <span class="ledger-method">Filed</span>
+                  <span class="ccy">TAX</span>
+                  <span style="font-size: 11px; font-weight: 600;">Accountant questions</span>
+                  <span class="ledger-method">Ready</span>
                 </div>
                 <div class="ledger-row">
                   <span class="ccy">CA</span>
-                  <span style="font-size: 11px; font-weight: 600;">Ontario Inc.</span>
-                  <span class="ledger-method">Filed</span>
+                  <span style="font-size: 11px; font-weight: 600;">GST/HST context</span>
+                  <span class="ledger-method">Review</span>
                 </div>
                 <div class="ledger-row">
                   <span class="ccy">US</span>
-                  <span style="font-size: 11px; font-weight: 600;">Sales tax · 14 states</span>
-                  <span class="ledger-method">Active</span>
+                  <span style="font-size: 11px; font-weight: 600;">Sales tax questions</span>
+                  <span class="ledger-method">Review</span>
                 </div>
                 <div class="ledger-row">
-                  <span class="ccy">CA</span>
-                  <span style="font-size: 11px; font-weight: 600;">GST/HST</span>
-                  <span class="ledger-method">Active</span>
+                  <span class="ccy">CM</span>
+                  <span style="font-size: 11px; font-weight: 600;">Nasdaq / financing path</span>
+                  <span class="ledger-method">Context</span>
                 </div>
               </div>
             )}
@@ -254,16 +192,16 @@ const services: Service[] = [
             {f.illus === "social" && (
               <div class="social-illus">
                 <div class="social-post">
-                  <span class="social-post-head">TikTok Shop</span>
-                  <span>Creator brief · 6 drafts shipped this week to NA creators tier 2-3.</span>
+                  <span class="social-post-head">English site</span>
+                  <span>Factory story, product categories, and inquiry path rewritten for overseas buyers.</span>
                 </div>
                 <div class="social-post">
-                  <span class="social-post-head">Amazon A+</span>
-                  <span>Module 4 rewritten in NA voice. CVR up 2.1pp since rollout.</span>
+                  <span class="social-post-head">Catalog</span>
+                  <span>Product specs, customization notes, and MOQ questions organized for B2B sales.</span>
                 </div>
                 <div class="social-post">
-                  <span class="social-post-head">Reddit</span>
-                  <span>r/Frugal seeding approved — 3 earnest reviews drafted by our editors.</span>
+                  <span class="social-post-head">Inquiry</span>
+                  <span>Buyer questions routed to the right contact with useful sales context.</span>
                 </div>
               </div>
             )}
@@ -271,26 +209,26 @@ const services: Service[] = [
               <div class="tl-illus">
                 <div class="tl-row">
                   <span class="tl-dot"></span>
-                  <span class="tl-meta">09:04 PT</span>
-                  <span class="tl-text">Install question · Seattle</span>
+                  <span class="tl-meta">09:04 ET</span>
+                  <span class="tl-text">Service question · North York</span>
                   <span class="tl-ch">SMS</span>
                 </div>
                 <div class="tl-row">
                   <span class="tl-dot" style="background: #22C55E;"></span>
                   <span class="tl-meta">11:22 ET</span>
-                  <span class="tl-text">Warranty claim · Montréal</span>
-                  <span class="tl-ch">FR · Email</span>
+                  <span class="tl-text">Accessory reminder · Toronto</span>
+                  <span class="tl-ch">Email</span>
                 </div>
                 <div class="tl-row">
                   <span class="tl-dot" style="background: #6366F1;"></span>
-                  <span class="tl-meta">14:08 CT</span>
-                  <span class="tl-text">Replacement order · Austin</span>
+                  <span class="tl-meta">14:08 ET</span>
+                  <span class="tl-text">Sales follow-up · Markham</span>
                   <span class="tl-ch">Chat</span>
                 </div>
                 <div class="tl-row">
                   <span class="tl-dot empty"></span>
                   <span class="tl-meta">queued</span>
-                  <span class="tl-text">Escalated to engineering</span>
+                  <span class="tl-text">Owner review needed</span>
                   <span class="tl-ch">Handoff</span>
                 </div>
               </div>
@@ -326,23 +264,23 @@ const services: Service[] = [
             {f.illus === "crm" && (
               <div class="crm-illus">
                 <div class="crm-head">
-                  <div class="crm-ava">MA</div>
+                  <div class="crm-ava">WD</div>
                   <div class="crm-info">
-                    <div class="crm-name">Maya Anand · Toronto, ON</div>
-                    <div class="crm-email">maya@altura.co</div>
+                    <div class="crm-name">WaterDoctor customer · Toronto, ON</div>
+                    <div class="crm-email">service workflow · reminder due</div>
                   </div>
                 </div>
                 <div class="crm-channels">
                   <span class="crm-ch email">Email</span>
                   <span class="crm-ch sms">SMS</span>
                   <span class="crm-ch chat">Live chat</span>
-                  <span class="crm-ch shopify">Shopify CA</span>
-                  <span class="crm-ch amzn">Amazon US</span>
+                  <span class="crm-ch shopify">Website lead</span>
+                  <span class="crm-ch amzn">Reminder</span>
                 </div>
                 <div class="crm-log">
-                  Apr 18 · order #4821 · $218.00 CAD<br />
-                  Apr 14 · replacement confirmed · shipped<br />
-                  Mar 02 · order #4612 · $98.00 USD
+                  Apr 18 · inquiry received · service booked<br />
+                  Apr 14 · filter reminder sent<br />
+                  Mar 02 · customer note updated
                 </div>
               </div>
             )}

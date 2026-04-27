@@ -3,10 +3,10 @@ import Icons from "./Icons.astro";
 
 type Col = [string, string[]];
 const cols: Col[] = [
-  ["Solutions", ["Consulting services", "JYDream Dashboard", "Local experience", "Channel launch", "Customer service"]],
-  ["Who we serve", ["Enterprise overseas teams", "Product brands", "Serviced products", "Industrial B2B", "Multi-brand corporates"]],
+  ["Solutions", ["Consulting services", "JYDream Dashboard", "Tax/accounting partners", "Capital-market readiness", "Local experience"]],
+  ["Who we serve", ["Toronto local businesses", "China exporters", "Product brands", "Serviced products", "B2B factories"]],
   ["Company", ["About", "Blog", "Articles", "Partners", "Privacy"]],
-  ["Contact", ["Start free for 2 months", "Book a consult", "Toronto", "Shenzhen", "Seattle"]],
+  ["Contact", ["Start free for 2 months", "Book a consult", "Toronto", "China clients", "NDA & legal"]],
 ];
 const year = new Date().getFullYear();
 ---
@@ -19,9 +19,9 @@ const year = new Date().getFullYear();
           <span class="logo-mark"><span>J</span></span>JYDream
         </a>
         <p class="footer-brand-desc">
-          Consulting partner for Asian companies expanding overseas. We combine
-          services, the JYDream Dashboard, and local experience in the US &amp;
-          Canada.
+          Toronto-based consulting partner serving local Toronto businesses and
+          China-based companies expanding overseas. We combine services, the
+          JYDream Dashboard, and local operating experience.
         </p>
       </div>
       {cols.map(([title, links]) => (

@@ -341,6 +341,21 @@ body.landing {
 }
 .landing .hero-ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .landing .hero-fine { font-size: 13px; color: var(--ink-4); margin-top: 16px; }
+.landing .hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+  max-width: 560px;
+}
+.landing .hero-points span {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 11px;
+}
 .landing .hero-grid {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -388,7 +403,80 @@ body.landing {
 .landing .vs-card.active .vs-card-icon { background: var(--coral); color: #fff; }
 
 /* Dashboard mock windows */
-.landing .hero-mocks { position: relative; height: 540px; }
+.landing .hero-mocks {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing .hero-offer {
+  width: min(100%, 420px);
+  border-radius: 22px;
+  background: var(--bg-raised);
+  border: 1px solid color-mix(in oklch, var(--coral) 28%, var(--line));
+  box-shadow: var(--shadow-lg);
+  padding: 32px;
+}
+.landing .offer-kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--coral);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.landing .offer-price {
+  font-family: var(--serif);
+  font-size: 78px;
+  line-height: .95;
+  color: var(--coral);
+  margin: 14px 0 4px;
+}
+.landing .hero-offer h2 {
+  font-family: var(--serif);
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+.landing .hero-offer p {
+  color: var(--ink-3);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 18px;
+}
+.landing .hero-offer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: grid;
+  gap: 10px;
+}
+.landing .hero-offer li {
+  color: var(--ink-2);
+  font-size: 14px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+.landing .hero-offer li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--coral);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.landing .offer-fine {
+  margin-top: 14px;
+  color: var(--ink-4);
+  font-size: 12.5px;
+}
+@media (max-width: 960px) {
+  .landing .hero-mocks { min-height: 0; }
+}
 .landing .mock-window {
   position: absolute;
   border-radius: 12px;
@@ -658,17 +746,43 @@ body.landing {
 .landing .feat-tag.services { background: #FFF1EE; color: var(--coral-600); }
 .landing .feat-tag.dashboard { background: #EEF0FF; color: #4F46E5; }
 .landing .feat-tag.local { background: #F0F9F1; color: #166534; }
+.landing .feat-tag.toronto { background: #E6F0FF; color: #1849A9; }
+.landing .feat-tag.china { background: #FFF1EE; color: var(--coral-600); }
+.landing .feat-tag.partners { background: #FFF7E6; color: #8B5A00; }
 .landing .feat-illus {
-  margin-top: auto;
-  min-height: 140px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  overflow: hidden;
-  position: relative;
+  display: none;
 }
+.landing .feat,
+.landing .feat.feat-wide { min-height: 0; }
 
 /* How it works */
+.landing .free-band {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 34px;
+  border: 1px solid color-mix(in oklch, var(--coral) 24%, var(--line));
+  border-radius: var(--r-lg);
+  background: var(--bg-raised);
+}
+.landing .free-band h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.5vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 10px 0 0;
+}
+.landing .free-band p {
+  margin: 0;
+  color: var(--ink-3);
+  line-height: 1.55;
+  font-size: 15.5px;
+}
+@media (max-width: 900px) {
+  .landing .free-band { grid-template-columns: 1fr; }
+}
+
 .landing .how-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -839,6 +953,25 @@ body.landing {
 }
 .landing .test-name { font-size: 13.5px; font-weight: 600; }
 .landing .test-role { font-size: 12.5px; color: var(--ink-4); }
+.landing .test-work-title {
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.landing .test-work-body {
+  font-size: 14.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin: 0;
+}
+.landing .test-link {
+  display: inline-block;
+  margin-top: 2px;
+  color: var(--coral);
+}
+.landing .test-link:hover { text-decoration: underline; }
 
 /* Articles */
 .landing .article-grid {

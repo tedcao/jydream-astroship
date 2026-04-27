@@ -1,40 +1,22 @@
 ---
 import Icons from "./Icons.astro";
-
-const items: [string, string, string][] = [
-  ["01", "Free consultation", "A 30-minute working session with our partners. We review your product, your overseas expansion goals, and the first three moves we would test."],
-  ["02", "Free 2-month pilot", "If there is a fit, we run the first two months at no cost. The pilot can cover services, the JYDream Dashboard, or local customer and channel workflows."],
-  ["03", "No commitment", "After the free pilot, you decide. Continue with a scoped services engagement, hand the work back to your team, or stop without obligation."],
-];
 ---
 
-<section class="ld-section" id="engagement" style="background: var(--bg-sunken);">
+<section class="ld-section-tight" id="engagement" style="background: var(--bg-sunken);">
   <div class="ld-container">
-    <div class="section-head" style="text-align: center; margin: 0 auto 48px; max-width: 720px;">
-      <span class="eyebrow" style="justify-content: center;">How to start</span>
-      <h2 class="section-title">Free consult. <em>Free first 2 months.</em></h2>
-      <p class="section-sub" style="margin: 0 auto;">
-        Overseas expansion is hard to judge from a proposal. We start with
-        real work, shared Dashboard visibility, and no commitment, so you can
-        see whether JYDream is useful before paying.
-      </p>
-    </div>
-    <div class="how-grid">
-      {items.map(([n, title, body]) => (
-        <div class="how-step">
-          <div class="how-num">{n}</div>
-          <h3 class="how-title">{title}</h3>
-          <p class="how-body">{body}</p>
-        </div>
-      ))}
-    </div>
-    <div style="text-align: center; margin-top: 48px;">
-      <a class="btn btn-primary btn-lg" href="#cta">
-        Start the free pilot <Icons name="arrow" />
-      </a>
-      <div style="margin-top: 14px; font-size: 13.5px; color: var(--ink-3);">
-        2 months free · No commitment · Mutual NDA on request
+    <div class="free-band">
+      <div>
+        <span class="eyebrow">Free pilot</span>
+        <h2>2 months free. One workflow. No commitment.</h2>
       </div>
-    </div>
+      <p>
+        We pick one practical problem and build the first version with you:
+        lead follow-up, customer service, reminders, China export readiness, or
+        partner coordination.
+      </p>
+      <a class="btn btn-primary btn-lg" href="/contact">
+        Start free <Icons name="arrow" />
+      </a>
+      </div>
   </div>
 </section>

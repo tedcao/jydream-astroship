@@ -1,54 +1,82 @@
 ---
-type Quote = [string, string, string, string, string];
+type Work = {
+  title: string;
+  meta: string;
+  body: string;
+  initials: string;
+  color: string;
+  href?: string;
+};
 
-const commerce: Quote[] = [
-  ["They got us into Amazon US, Shopify CA, and Target's open-call in 9 months. We would have taken two years on our own.", "Sarah L.", "Founder, Altura (Shenzhen → NA)", "SL", "#FF6B5B"],
-  ["We hired one person in Toronto for $180k/yr and still had nothing live. JYDream had us shipping orders in 11 weeks — and warming up Nordstrom conversations.", "Marcus T.", "GM North America, Northwind", "MT", "#6366F1"],
-  ["The writing alone was worth it. Our Amazon listings finally sound like they were written in English, not translated.", "Priya K.", "VP Growth, Helix Goods", "PK", "#14B8A6"],
-];
-const service: Quote[] = [
-  ["Our NA customer service turnaround halved after JYDream took over. Customers finally felt heard in their own timezone.", "Rick D.", "CEO, Clearflow Water (Hangzhou)", "RD", "#F59E0B"],
-  ["We tried ServiceTitan. We tried a 3PL. Only JYDream bundled parts, dispatch, and customer service under one SLA.", "Jennifer M.", "COO, Hydrolab (Guangzhou)", "JM", "#EF4444"],
-  ["Filter replacement rebook went from 42% to 78% of our NA base. That's the whole ROI of the engagement.", "Carlos R.", "Founder, Kettle (HK)", "CR", "#8B5CF6"],
+const work: Work[] = [
+  {
+    title: "WaterDoctor.ca",
+    meta: "Toronto client · Water service business",
+    body:
+      "We helped build their website, customer service workflow, sales support, and accessory reminder system so local customers can book, ask questions, and receive timely replacement reminders.",
+    initials: "WD",
+    color: "#2563EB",
+    href: "https://waterdoctor.ca",
+  },
+  {
+    title: "Mozu Doll",
+    meta: "China factory · Overseas-facing brand",
+    body:
+      "We supported the digital foundation for a Chinese manufacturing brand preparing for overseas buyers, including web presence, product presentation, and export-oriented customer touchpoints.",
+    initials: "MZ",
+    color: "#FF6B5B",
+    href: "https://mozudoll.com",
+  },
+  {
+    title: "JY Doll",
+    meta: "China factory · Cross-border sales support",
+    body:
+      "We helped another China-based doll manufacturer improve its overseas-facing presence and prepare sales materials for non-domestic customers.",
+    initials: "JY",
+    color: "#14B8A6",
+    href: "https://jydoll.com",
+  },
+  {
+    title: "Confidential China exporters",
+    meta: "China clients · Overseas expansion advisory",
+    body:
+      "For other China-based companies, we support market-entry planning, English-language positioning, channel readiness, and practical Toronto / North America operating advice.",
+    initials: "CN",
+    color: "#6366F1",
+  },
 ];
 ---
 
-<section class="ld-section" id="case-studies" style="background: var(--bg-sunken);">
+<section class="ld-section" id="client-work" style="background: var(--bg-sunken);">
   <div class="ld-container">
     <div class="features-head">
       <div>
-        <span class="eyebrow">Case studies</span>
-      <h2 class="section-title">Brands we <em>helped land</em>.</h2>
-      </div>
-      <div class="v-toggle" data-role="v-toggle">
-        <button type="button" data-vertical="commerce" class="active">Product</button>
-        <button type="button" data-vertical="service">Serviced</button>
+        <span class="eyebrow">Selected client work</span>
+        <h2 class="section-title">Toronto clients and <em>China exporters</em>.</h2>
+        <p class="section-sub">
+          We are based in Toronto and mainly serve local Toronto businesses and
+          China-based companies preparing for overseas markets. These are real
+          examples and representative confidential work, not invented logos.
+        </p>
       </div>
     </div>
-    <div class="test-grid" data-role="test-grid">
-      {commerce.map(([q, n, r, i, c]) => (
-        <div class="test-card" data-vertical="commerce">
-          <div class="test-quote">{q}</div>
+    <div class="test-grid">
+      {work.map((item) => (
+        <article class="test-card">
+          <div class="test-work-title">{item.title}</div>
+          <p class="test-work-body">{item.body}</p>
           <div class="test-person">
-            <div class="test-ava" style={`background: ${c};`}>{i}</div>
+            <div class="test-ava" style={`background: ${item.color};`}>{item.initials}</div>
             <div>
-              <div class="test-name">{n}</div>
-              <div class="test-role">{r}</div>
+              <div class="test-name">{item.meta}</div>
+              {item.href && (
+                <a class="test-role test-link" href={item.href} target="_blank" rel="noopener">
+                  {item.href.replace("https://", "")}
+                </a>
+              )}
             </div>
           </div>
-        </div>
-      ))}
-      {service.map(([q, n, r, i, c]) => (
-        <div class="test-card" data-vertical="service" data-hidden="true">
-          <div class="test-quote">{q}</div>
-          <div class="test-person">
-            <div class="test-ava" style={`background: ${c};`}>{i}</div>
-            <div>
-              <div class="test-name">{n}</div>
-              <div class="test-role">{r}</div>
-            </div>
-          </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>
