@@ -4,6 +4,7 @@
 interface ImportMetaEnv {
   readonly DIRECTUS_URL: string;
   readonly DIRECTUS_TOKEN: string;
+  readonly WEB3FORMS_ACCESS_KEY?: string;
 }
 
 interface ImportMeta {

@@ -3,13 +3,19 @@ import Button from "./ui/button.astro";
 ---
 
 <form
-  action="https://api.web3forms.com/submit"
+  action="/api/contact"
   method="POST"
   id="contact-form"
   class="needs-validation"
   novalidate>
-  <input type="hidden" name="access_key" value="c2b11354-96b5-4644-89d4-741b5fed9d63" />
-  <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+  <input type="checkbox" class="spam-trap" name="botcheck" tabindex="-1" autocomplete="off" />
+  <div class="spam-trap" aria-hidden="true">
+    <label>
+      Leave this field empty
+      <input type="text" name="website_url" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+  <input type="hidden" name="form_started_at" value="" />
   <input type="hidden" name="from_website" value="JYDream Free Pilot Request" />
   <input type="hidden" name="subject" value="New JYDream free pilot request" />
   <input type="hidden" name="page_url" value="/contact" />
@@ -116,13 +122,28 @@ import Button from "./ui/button.astro";
   .was-validated :invalid {
     border-color: #dc3545;
   }
+
+  .spam-trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
 </style>
 
 <script is:inline>
   const form = document.getElementById("contact-form");
   const result = document.getElementById("result");
   const submitButton = form.querySelector("button[type='submit']");
+  const formStartedAt = form.querySelector("input[name='form_started_at']");
   const initialButtonText = submitButton.textContent;
+
+  if (formStartedAt) {
+    formStartedAt.value = String(Date.now());
+  }
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -143,7 +164,7 @@ import Button from "./ui/button.astro";
     submitButton.textContent = "Sending...";
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -153,11 +174,14 @@ import Button from "./ui/button.astro";
       });
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.success !== false) {
         result.className = "mt-3 text-center text-sm text-green-600";
         result.innerHTML = "Thanks — your request was sent. We'll reply from ted@jydream.ca.";
         form.reset();
         form.classList.remove("was-validated");
+        if (formStartedAt) {
+          formStartedAt.value = String(Date.now());
+        }
         setTimeout(() => {
           result.style.display = "none";
         }, 5000);
